@@ -1,4 +1,4 @@
-package f_array.a_teach;
+package f_array.a_one_dimensional.a_teach;
 
 import java.util.Scanner;
 
