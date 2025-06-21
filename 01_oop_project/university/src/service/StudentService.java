@@ -7,7 +7,7 @@ public class StudentService {
 
     private final StudentRepository studentRepository = new StudentRepository();
 
-    public boolean signIn(Student student) {
+    public boolean signUp(Student student) {
         boolean firstNameResult = isValidName(student.getFirstname());
         boolean lastNameResult = isValidName(student.getLastname());
         boolean nationalCodeResult = isValidNationalCode(student.getNationalCode());

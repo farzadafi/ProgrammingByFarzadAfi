@@ -15,7 +15,7 @@ public class StudentMenu {
         String nationalCode = userInputHandler.getStringFromUserByArg("nationalCode");
         String password = userInputHandler.getStringFromUserByArg("password");
         Student student = new Student(firstname, lastname, nationalCode, password);
-        boolean result = studentService.signIn(student);
+        boolean result = studentService.signUp(student);
         if (result) {
             System.out.println("your register successfully");
         } else {

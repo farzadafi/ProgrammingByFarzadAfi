@@ -35,6 +35,9 @@ public class GeneralMenu {
         String password = userInputHandler.getStringFromUserByArg("password");
         if(username.equals("admin") && password.equals("admin"))
             clerkMenu.initialMenu();
+        else{
+
+        }
         generalMenu();
     }
 
