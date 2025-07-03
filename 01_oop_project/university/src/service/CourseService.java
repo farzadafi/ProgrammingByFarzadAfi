@@ -9,9 +9,14 @@ public class CourseService {
 
     public boolean add(Course course) {
         boolean duplicateCourse = courseRepository.isDuplicateCourse(course.getName());
-        if(duplicateCourse)
+        if (duplicateCourse)
             return false;
         courseRepository.add(course);
         return true;
+    }
+
+    public Course[] getAllCourses() {
+        int numberOfCourses = courseRepository.getNumberOfCources();
+        return courseRepository.getCourseByNumber(numberOfCourses);
     }
 }
