@@ -19,4 +19,8 @@ public class CourseService {
         int numberOfCourses = courseRepository.getNumberOfCources();
         return courseRepository.getCourseByNumber(numberOfCourses);
     }
+
+    public int getCapacityByCode(int code) {
+        return courseRepository.getCapacityByCode(code);
+    }
 }

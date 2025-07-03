@@ -48,4 +48,12 @@ public class CourseRepository {
         }
         return courses;
     }
+
+    public int getCapacityByCode(int code) {
+        for (int i = 0; i < COURSES.length; i++) {
+            if(COURSES[i] != null && COURSES[i].getCode() == code)
+                return COURSES[i].getCapacity();
+        }
+        return 0;
+    }
 }

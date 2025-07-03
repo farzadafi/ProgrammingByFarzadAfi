@@ -14,4 +14,12 @@ public class Course {
     public String getName() {
         return name;
     }
+
+    public int getCode() {
+        return code;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
 }

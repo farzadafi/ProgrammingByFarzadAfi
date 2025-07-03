@@ -1,9 +1,9 @@
+import model.Course;
 import model.Professor;
 import model.Student;
+import model.StudentCourse;
 import repository.StudentRepository;
-import service.ClerkService;
-import service.ProfessorService;
-import service.StudentService;
+import service.*;
 
 public class ProgrammingByFarzadAfi {
     public static void main(String[] args) {
@@ -25,5 +25,13 @@ public class ProgrammingByFarzadAfi {
         for (int i = 0; i < allStudent.length; i++) {
             System.out.println(allStudent[i]);
         }
+
+        Course course = new Course("programming", 12345, 0);
+        CourseService courseService = new CourseService();
+        courseService.add(course);
+        StudentCourseService studentCourseService = new StudentCourseService();
+
+        System.out.println("return of register course:");
+        System.out.println(studentCourseService.add(new StudentCourse("3080000000", 12345)));
     }
 }
