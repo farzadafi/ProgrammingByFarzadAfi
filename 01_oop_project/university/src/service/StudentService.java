@@ -21,6 +21,15 @@ public class StudentService {
         return true;
     }
 
+    public boolean acceptStudent(String nationalCode) {
+        Student studentByNationalCode =
+                studentRepository.findStudentByNationalCode(nationalCode);
+        if (studentByNationalCode == null)
+            return false;
+        studentRepository.acceptStudent(nationalCode);
+        return true;
+    }
+
     private boolean isValidName(String name) {
         if (name.length() < 3)
             return false;

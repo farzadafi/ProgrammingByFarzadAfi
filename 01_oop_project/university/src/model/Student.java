@@ -5,12 +5,17 @@ public class Student {
     private String lastname;
     private String nationalCode;
     private String password;
+    private boolean isAccepted;
 
     public Student(String firstname, String lastname, String nationalCode, String password) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.nationalCode = nationalCode;
         this.password = password;
+    }
+
+    public void setAccepted(boolean accepted) {
+        isAccepted = accepted;
     }
 
     public String getFirstname() {
