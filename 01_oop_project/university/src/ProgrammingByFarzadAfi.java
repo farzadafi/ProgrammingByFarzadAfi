@@ -26,12 +26,20 @@ public class ProgrammingByFarzadAfi {
             System.out.println(allStudent[i]);
         }
 
-        Course course = new Course("programming", 12345, 0);
+        Course course = new Course("programming", 12345, 30);
+        Course course1 = new Course("programming1", 12346, 30);
         CourseService courseService = new CourseService();
         courseService.add(course);
+        courseService.add(course1);
         StudentCourseService studentCourseService = new StudentCourseService();
 
         System.out.println("return of register course:");
         System.out.println(studentCourseService.add(new StudentCourse("3080000000", 12345)));
+        System.out.println(studentCourseService.add(new StudentCourse("3080000000", 12346)));
+
+        String[] arraysOfRegisterCourse = studentService.getArraysOfRegisterCourse("3080000000");
+        for (int i = 0; i < arraysOfRegisterCourse.length; i++) {
+            System.out.println(arraysOfRegisterCourse[i]);
+        }
     }
 }

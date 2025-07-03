@@ -19,7 +19,30 @@ public class StudentCourseRepository {
         int count = 0;
         for (int i = 0; i < STUDENT_COURSE.length; i++) {
             StudentCourse sc = STUDENT_COURSE[i];
-            if(sc != null && sc.getCourseCode() == code)
+            if (sc != null && sc.getCourseCode() == code)
+                ++count;
+        }
+        return count;
+    }
+
+    public int[] getNumbersStudentCourseCode(String nationalCode, int number) {
+        int[] courseCode = new int[number];
+        int counterOfCourseCode = 0;
+        for (int i = 0; i < STUDENT_COURSE.length; i++) {
+            StudentCourse sc = STUDENT_COURSE[i];
+            if(sc != null && sc.getNationalCode().equals(nationalCode)) {
+                courseCode[counterOfCourseCode] = sc.getCourseCode();
+                ++counterOfCourseCode;
+            }
+        }
+        return courseCode;
+    }
+
+    public int countOfNumberStudentCourseCode(String nationalCode) {
+        int count = 0;
+        for (int i = 0; i < STUDENT_COURSE.length; i++) {
+            StudentCourse sc = STUDENT_COURSE[i];
+            if (sc != null && sc.getNationalCode().equals(nationalCode))
                 ++count;
         }
         return count;

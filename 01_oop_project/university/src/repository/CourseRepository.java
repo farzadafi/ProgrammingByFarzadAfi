@@ -56,4 +56,12 @@ public class CourseRepository {
         }
         return 0;
     }
+
+    public String getNameByCode(int code) {
+        for (int i = 0; i < COURSES.length; i++) {
+            if(COURSES[i] != null && COURSES[i].getCode() == code)
+                return COURSES[i].getName();
+        }
+        return null;
+    }
 }

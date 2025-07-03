@@ -18,4 +18,9 @@ public class StudentCourseService {
         studentCourseRepository.add(studentCourse);
         return true;
     }
+
+    public int[] getNumbersOfStudentCourseCode(String nationalCode) {
+        int number = studentCourseRepository.countOfNumberStudentCourseCode(nationalCode);
+        return studentCourseRepository.getNumbersStudentCourseCode(nationalCode, number);
+    }
 }

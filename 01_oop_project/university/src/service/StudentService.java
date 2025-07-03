@@ -8,6 +8,8 @@ public class StudentService {
 
     private final StudentRepository studentRepository = new StudentRepository();
     private final Validator validator = new Validator();
+    private final StudentCourseService studentCourseService = new StudentCourseService();
+    private final CourseService courseService = new CourseService();
 
     public boolean register(Student student) {
         if (!validator.isValidName(student.getFirstname()))
@@ -42,5 +44,10 @@ public class StudentService {
     public Student[] getAll() {
         int numberOfStudent = studentRepository.getNumberOfStudent();
         return studentRepository.getStudentByNumber(numberOfStudent);
+    }
+
+    public String[] getArraysOfRegisterCourse(String nationalCode) {
+        int[] numbersOfStudentCourseCode = studentCourseService.getNumbersOfStudentCourseCode(nationalCode);
+        return courseService.getNameOfCourseFromCode(numbersOfStudentCourseCode);
     }
 }

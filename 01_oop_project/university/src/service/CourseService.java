@@ -23,4 +23,13 @@ public class CourseService {
     public int getCapacityByCode(int code) {
         return courseRepository.getCapacityByCode(code);
     }
+
+    public String[] getNameOfCourseFromCode(int[] courseCode) {
+        String[] coursesName = new String[courseCode.length];
+        for (int i = 0; i < courseCode.length; i++) {
+            String nameByCode = courseRepository.getNameByCode(courseCode[i]);
+            coursesName[i] = nameByCode;
+        }
+        return coursesName;
+    }
 }
