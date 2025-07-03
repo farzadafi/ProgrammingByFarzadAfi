@@ -1,4 +1,5 @@
 import model.Student;
+import repository.StudentRepository;
 import service.ClerkService;
 import service.StudentService;
 
@@ -12,5 +13,7 @@ public class ProgrammingByFarzadAfi {
         System.out.println(studentService.register(student));
 
         System.out.println(clerkService.acceptStudent("3082000000"));
+
+        System.out.println(clerkService.updateStudent("3080000000", "test"));
     }
 }

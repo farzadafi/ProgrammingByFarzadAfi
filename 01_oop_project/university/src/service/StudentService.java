@@ -30,6 +30,13 @@ public class StudentService {
         return true;
     }
 
+    public boolean updateFirstname(String nationalCode, String newFirstname) {
+        if(!isValidName(newFirstname))
+            return false;
+        studentRepository.updateFirstname(nationalCode, newFirstname);
+        return true;
+    }
+
     private boolean isValidName(String name) {
         if (name.length() < 3)
             return false;

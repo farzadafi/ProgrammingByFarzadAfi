@@ -14,6 +14,10 @@ public class Student {
         this.password = password;
     }
 
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
     public void setAccepted(boolean accepted) {
         isAccepted = accepted;
     }

@@ -4,7 +4,7 @@ import model.Student;
 
 public class StudentRepository {
 
-    private final Student[] students = new Student[100];
+    private final static Student[] students = new Student[100];
 
     public void register(Student student) {
         for (int i = 0; i < students.length; i++) {
@@ -31,5 +31,14 @@ public class StudentRepository {
                 return students[i];
         }
         return null;
+    }
+
+    public void updateFirstname(String nationalCode, String firstname) {
+        int i;
+        for (i = 0; i < students.length; i++) {
+            if (students[i].getNationalCode().equals(nationalCode))
+                break;
+        }
+        students[i].setFirstname(firstname);
     }
 }
