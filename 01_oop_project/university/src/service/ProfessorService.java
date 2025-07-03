@@ -1,6 +1,7 @@
 package service;
 
 import model.Professor;
+import model.Student;
 import repository.ProfessorRepository;
 import utility.Validator;
 
@@ -20,6 +21,22 @@ public class ProfessorService {
             return false;
 
         professorRepository.register(professor);
+        return true;
+    }
+
+    public boolean acceptProfessor(String nationalCode) {
+        Professor professor =
+                professorRepository.findByNationalCode(nationalCode);
+        if (professor == null)
+            return false;
+        professorRepository.acceptProfessor(nationalCode);
+        return true;
+    }
+
+    public boolean updateFirstname(String nationalCode, String newFirstname) {
+        if(!validator.isValidName(newFirstname))
+            return false;
+        professorRepository.updateFirstname(nationalCode, newFirstname);
         return true;
     }
 }
