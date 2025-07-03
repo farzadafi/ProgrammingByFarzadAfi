@@ -1,50 +1,16 @@
 package model;
 
-public class Student {
-    private String firstname;
-    private String lastname;
-    private String nationalCode;
-    private String password;
-    private boolean isAccepted;
+public class Student extends Person {
 
-    public Student(String firstname, String lastname, String nationalCode, String password) {
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.nationalCode = nationalCode;
-        this.password = password;
-    }
-
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public void setAccepted(boolean accepted) {
-        isAccepted = accepted;
-    }
-
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public String getNationalCode() {
-        return nationalCode;
-    }
-
-    public String getPassword() {
-        return password;
+    public Student(String firstname,
+                   String lastname,
+                   String nationalCode,
+                   String password) {
+        super(firstname, lastname, nationalCode, password);
     }
 
     @Override
     public String toString() {
-        return "Student{" +
-                "firstname='" + firstname + '\'' +
-                ", lastname='" + lastname + '\'' +
-                ", nationalCode='" + nationalCode + '\'' +
-                ", password='" + password + '\'' +
-                '}';
+        return "Student is: \n" + super.toString();
     }
 }

@@ -1,6 +1,8 @@
+import model.Professor;
 import model.Student;
 import repository.StudentRepository;
 import service.ClerkService;
+import service.ProfessorService;
 import service.StudentService;
 
 public class ProgrammingByFarzadAfi {
@@ -15,5 +17,8 @@ public class ProgrammingByFarzadAfi {
         System.out.println(clerkService.acceptStudent("3082000000"));
 
         System.out.println(clerkService.updateStudent("3080000000", "test"));
+
+        ProfessorService professorService = new ProfessorService();
+        System.out.println(professorService.register(new Professor("tkjfdlskfj", "dklfjdlkfj", "3080200000", "aA1!dslkjfd")));
     }
 }

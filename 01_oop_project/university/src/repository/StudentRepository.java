@@ -4,7 +4,7 @@ import model.Student;
 
 public class StudentRepository {
 
-    private final static Student[] students = new Student[100];
+    public final static Student[] students = new Student[100];
 
     public void register(Student student) {
         for (int i = 0; i < students.length; i++) {
