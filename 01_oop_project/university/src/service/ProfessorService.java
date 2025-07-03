@@ -34,9 +34,14 @@ public class ProfessorService {
     }
 
     public boolean updateFirstname(String nationalCode, String newFirstname) {
-        if(!validator.isValidName(newFirstname))
+        if (!validator.isValidName(newFirstname))
             return false;
         professorRepository.updateFirstname(nationalCode, newFirstname);
         return true;
+    }
+
+    public Professor[] getAll() {
+        int numberOfStudent = professorRepository.getNumberOfProfessor();
+        return professorRepository.getProfessorByNumber(numberOfStudent);
     }
 }

@@ -20,5 +20,10 @@ public class ProgrammingByFarzadAfi {
 
         ProfessorService professorService = new ProfessorService();
         System.out.println(professorService.register(new Professor("tkjfdlskfj", "dklfjdlkfj", "3080200000", "aA1!dslkjfd")));
+
+        Student[] allStudent = clerkService.getAllStudent();
+        for (int i = 0; i < allStudent.length; i++) {
+            System.out.println(allStudent[i]);
+        }
     }
 }

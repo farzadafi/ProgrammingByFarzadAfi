@@ -1,7 +1,6 @@
 package repository;
 
 import model.Professor;
-import model.Student;
 
 public class ProfessorRepository {
 
@@ -41,5 +40,22 @@ public class ProfessorRepository {
                 break;
         }
         PROFESSORS[i].setFirstname(newFirstname);
+    }
+
+    public int getNumberOfProfessor() {
+        int count = 0;
+        for (int i = 0; i < PROFESSORS.length; i++) {
+            if (PROFESSORS[i] != null)
+                ++count;
+        }
+        return count;
+    }
+
+    public Professor[] getProfessorByNumber(int numberOfProfessor) {
+        Professor[] professors = new Professor[numberOfProfessor];
+        for (int i = 0; i < numberOfProfessor; i++) {
+            professors[i] = PROFESSORS[i];
+        }
+        return professors;
     }
 }

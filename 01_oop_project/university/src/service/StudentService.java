@@ -38,4 +38,9 @@ public class StudentService {
         studentRepository.updateFirstname(nationalCode, newFirstname);
         return true;
     }
+
+    public Student[] getAll() {
+        int numberOfStudent = studentRepository.getNumberOfStudent();
+        return studentRepository.getStudentByNumber(numberOfStudent);
+    }
 }

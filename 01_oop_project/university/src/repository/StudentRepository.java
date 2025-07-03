@@ -4,12 +4,12 @@ import model.Student;
 
 public class StudentRepository {
 
-    public final static Student[] students = new Student[100];
+    public final static Student[] STUDENTS = new Student[100];
 
     public void register(Student student) {
-        for (int i = 0; i < students.length; i++) {
-            if (students[i] == null) {
-                students[i] = student;
+        for (int i = 0; i < STUDENTS.length; i++) {
+            if (STUDENTS[i] == null) {
+                STUDENTS[i] = student;
                 break;
             }
         }
@@ -17,28 +17,45 @@ public class StudentRepository {
 
     public void acceptStudent(String nationalCode) {
         int i;
-        for (i = 0; i < students.length; i++) {
-            if (students[i].getNationalCode().equals(nationalCode))
+        for (i = 0; i < STUDENTS.length; i++) {
+            if (STUDENTS[i].getNationalCode().equals(nationalCode))
                 break;
         }
-        students[i].setAccepted(true);
+        STUDENTS[i].setAccepted(true);
     }
 
     public Student findStudentByNationalCode(String nationalCode) {
-        for (int i = 0; i < students.length; i++) {
-            if (students[i] != null &&
-                    students[i].getNationalCode().equals(nationalCode))
-                return students[i];
+        for (int i = 0; i < STUDENTS.length; i++) {
+            if (STUDENTS[i] != null &&
+                    STUDENTS[i].getNationalCode().equals(nationalCode))
+                return STUDENTS[i];
         }
         return null;
     }
 
     public void updateFirstname(String nationalCode, String firstname) {
         int i;
-        for (i = 0; i < students.length; i++) {
-            if (students[i].getNationalCode().equals(nationalCode))
+        for (i = 0; i < STUDENTS.length; i++) {
+            if (STUDENTS[i].getNationalCode().equals(nationalCode))
                 break;
         }
-        students[i].setFirstname(firstname);
+        STUDENTS[i].setFirstname(firstname);
+    }
+
+    public int getNumberOfStudent() {
+        int count = 0;
+        for (int i = 0; i < STUDENTS.length; i++) {
+            if (STUDENTS[i] != null)
+                ++count;
+        }
+        return count;
+    }
+
+    public Student[] getStudentByNumber(int numberOfStudent) {
+        Student[] students = new Student[numberOfStudent];
+        for (int i = 0; i < numberOfStudent; i++) {
+            students[i] = STUDENTS[i];
+        }
+        return students;
     }
 }

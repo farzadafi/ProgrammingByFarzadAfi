@@ -1,5 +1,8 @@
 package service;
 
+import model.Professor;
+import model.Student;
+
 public class ClerkService {
 
     private final StudentService studentService = new StudentService();
@@ -19,5 +22,13 @@ public class ClerkService {
 
     public boolean updateProfessor(String nationalCode, String newFirstname) {
         return professorService.updateFirstname(nationalCode, newFirstname);
+    }
+
+    public Student[] getAllStudent() {
+        return studentService.getAll();
+    }
+
+    public Professor[] getAllProfessor() {
+        return professorService.getAll();
     }
 }
