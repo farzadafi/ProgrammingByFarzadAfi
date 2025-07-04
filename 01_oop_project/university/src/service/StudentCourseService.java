@@ -23,4 +23,15 @@ public class StudentCourseService {
         int number = studentCourseRepository.countOfNumberStudentCourseCode(nationalCode);
         return studentCourseRepository.getNumbersStudentCourseCode(nationalCode, number);
     }
+
+    public boolean setGrade(String nationalCode,
+                         int courseCode,
+                         int grade) {
+        boolean result =
+                studentCourseRepository.isNationalCodeHasCourse(nationalCode, courseCode);
+        if(!result)
+            return false;
+        studentCourseRepository.setGradeWithNationalCodeAndCourseCode(nationalCode, courseCode, grade);
+        return true;
+    }
 }

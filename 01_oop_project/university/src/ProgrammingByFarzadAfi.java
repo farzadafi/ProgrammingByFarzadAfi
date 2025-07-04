@@ -41,5 +41,7 @@ public class ProgrammingByFarzadAfi {
         for (int i = 0; i < arraysOfRegisterCourse.length; i++) {
             System.out.println(arraysOfRegisterCourse[i]);
         }
+
+        System.out.println(studentCourseService.setGrade("3080000000", 12345, 15));
     }
 }

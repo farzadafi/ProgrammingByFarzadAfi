@@ -1,7 +1,6 @@
 package service;
 
 import model.Professor;
-import model.Student;
 import repository.ProfessorRepository;
 import utility.Validator;
 

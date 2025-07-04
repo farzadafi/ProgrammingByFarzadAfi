@@ -30,7 +30,7 @@ public class StudentCourseRepository {
         int counterOfCourseCode = 0;
         for (int i = 0; i < STUDENT_COURSE.length; i++) {
             StudentCourse sc = STUDENT_COURSE[i];
-            if(sc != null && sc.getNationalCode().equals(nationalCode)) {
+            if (sc != null && sc.getNationalCode().equals(nationalCode)) {
                 courseCode[counterOfCourseCode] = sc.getCourseCode();
                 ++counterOfCourseCode;
             }
@@ -47,4 +47,29 @@ public class StudentCourseRepository {
         }
         return count;
     }
+
+    public boolean isNationalCodeHasCourse(String nationalCode,
+                                           int courseCode) {
+        for (int i = 0; i < STUDENT_COURSE.length; i++) {
+            StudentCourse sc = STUDENT_COURSE[i];
+            if (sc != null &&
+                    sc.getNationalCode().equals(nationalCode) &&
+                    sc.getCourseCode() == courseCode)
+                return true;
+        }
+        return false;
+    }
+
+    public void setGradeWithNationalCodeAndCourseCode(String nationalCode,
+                                                      int courseCode,
+                                                      int grade) {
+        int i;
+        for (i = 0; i < STUDENT_COURSE.length; i++) {
+            StudentCourse sc = STUDENT_COURSE[i];
+            if (sc != null && sc.getNationalCode().equals(nationalCode) && sc.getCourseCode() == courseCode)
+                break;
+        }
+        STUDENT_COURSE[i].setGrade(grade);
+    }
 }
+/**/
