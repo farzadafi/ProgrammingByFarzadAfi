@@ -10,6 +10,10 @@ public class StudentCourse {
         this.courseCode = courseCode;
     }
 
+    public int getGrade() {
+        return grade;
+    }
+
     public String getNationalCode() {
         return nationalCode;
     }

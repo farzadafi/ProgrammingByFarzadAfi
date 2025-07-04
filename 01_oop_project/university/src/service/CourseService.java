@@ -32,4 +32,8 @@ public class CourseService {
         }
         return coursesName;
     }
+
+    public String getCourseNameByCode(int code){
+        return courseRepository.getNameByCode(code);
+    }
 }

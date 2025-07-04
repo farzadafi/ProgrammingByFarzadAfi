@@ -71,5 +71,19 @@ public class StudentCourseRepository {
         }
         STUDENT_COURSE[i].setGrade(grade);
     }
+
+    public StudentCourse[] getStudentCourseThatStudentPassed(String nationalCode) {
+        StudentCourse[] studentCourses = new StudentCourse[100];
+        int j = 0;
+        for (int i = 0; i < STUDENT_COURSE.length; i++) {
+            StudentCourse sc = STUDENT_COURSE[i];
+            if (sc != null &&
+                    sc.getNationalCode().equals(nationalCode) &&
+                    sc.getGrade() > 12) {
+                studentCourses[j] = sc;
+                ++j;
+            }
+        }
+        return studentCourses;
+    }
 }
-/**/

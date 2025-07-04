@@ -1,3 +1,4 @@
+import dto.CourseWithGrade;
 import model.Course;
 import model.Professor;
 import model.Student;
@@ -42,6 +43,11 @@ public class ProgrammingByFarzadAfi {
             System.out.println(arraysOfRegisterCourse[i]);
         }
 
-        System.out.println(studentCourseService.setGrade("3080000000", 12345, 15));
+        System.out.println(studentCourseService.setGrade("3080000000", 12345, 20));
+
+        CourseWithGrade[] studentCourseThatStudentPassed = studentService.getStudentCourseThatStudentPassed("3080000000");
+        for (int i = 0; i < studentCourseThatStudentPassed.length; i++) {
+            System.out.println(studentCourseThatStudentPassed[i]);
+        }
     }
 }

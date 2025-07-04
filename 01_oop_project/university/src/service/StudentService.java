@@ -1,6 +1,8 @@
 package service;
 
+import dto.CourseWithGrade;
 import model.Student;
+import model.StudentCourse;
 import repository.StudentRepository;
 import utility.Validator;
 
@@ -35,7 +37,7 @@ public class StudentService {
     }
 
     public boolean updateFirstname(String nationalCode, String newFirstname) {
-        if(!validator.isValidName(newFirstname))
+        if (!validator.isValidName(newFirstname))
             return false;
         studentRepository.updateFirstname(nationalCode, newFirstname);
         return true;
@@ -49,5 +51,18 @@ public class StudentService {
     public String[] getArraysOfRegisterCourse(String nationalCode) {
         int[] numbersOfStudentCourseCode = studentCourseService.getNumbersOfStudentCourseCode(nationalCode);
         return courseService.getNameOfCourseFromCode(numbersOfStudentCourseCode);
+    }
+
+    public CourseWithGrade[] getStudentCourseThatStudentPassed(String nationalCode) {
+        StudentCourse[] studentCourseThatStudentPassed = studentCourseService.getStudentCourseThatStudentPassed(nationalCode);
+        CourseWithGrade[] courseWithGrades = new CourseWithGrade[studentCourseThatStudentPassed.length];
+        for (int i = 0; i < studentCourseThatStudentPassed.length; i++) {
+            if (studentCourseThatStudentPassed[i] != null) {
+                StudentCourse scs = studentCourseThatStudentPassed[i];
+                String courseName = courseService.getCourseNameByCode(scs.getCourseCode());
+                courseWithGrades[i] = new CourseWithGrade(courseName, scs.getGrade());
+            }
+        }
+        return courseWithGrades;
     }
 }

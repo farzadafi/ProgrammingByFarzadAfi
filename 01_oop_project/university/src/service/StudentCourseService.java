@@ -24,6 +24,10 @@ public class StudentCourseService {
         return studentCourseRepository.getNumbersStudentCourseCode(nationalCode, number);
     }
 
+    public StudentCourse[] getStudentCourseThatStudentPassed(String nationalCode) {
+        return studentCourseRepository.getStudentCourseThatStudentPassed(nationalCode);
+    }
+
     public boolean setGrade(String nationalCode,
                          int courseCode,
                          int grade) {
