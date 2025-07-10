@@ -1,14 +1,19 @@
 package model;
 
+import java.time.LocalDate;
+
 public class User {
     private String name;
     private String lastname;
     private String nationalCode;
+    private LocalDate registerDate;
 
-    public User(String name, String lastname, String nationalCode) {
+    public User(String name, String lastname,
+                String nationalCode, LocalDate registerDate) {
         this.name = name;
         this.lastname = lastname;
         this.nationalCode = nationalCode;
+        this.registerDate = registerDate;
     }
 
     public String getName() {

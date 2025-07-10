@@ -3,6 +3,8 @@ import model.User;
 import service.BookService;
 import service.UserService;
 
+import java.time.LocalDate;
+
 public class ProgrammingByFarzadAfi {
     public static void main(String[] args) {
         BookService bookService = new BookService();
@@ -16,7 +18,8 @@ public class ProgrammingByFarzadAfi {
 
         bookService.remove("b");
 
-        User user = new User("abc", "abcd", "3080000000");
+        User user = new User("abc", "abcd",
+                "3080000000", LocalDate.now());
         UserService userService = new UserService();
         userService.addUser(user);
     }
