@@ -16,6 +16,10 @@ public class User {
         this.registerDate = registerDate;
     }
 
+    public LocalDate getRegisterDate() {
+        return registerDate;
+    }
+
     public String getName() {
         return name;
     }

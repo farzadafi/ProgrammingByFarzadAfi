@@ -2,6 +2,7 @@ import dto.SimpleBook;
 import model.Book;
 import model.User;
 import service.BookService;
+import service.LoanService;
 import service.UserService;
 
 import java.time.LocalDate;
@@ -41,5 +42,14 @@ public class ProgrammingByFarzadAfi {
         for (int i = 0; i < resultBooks.length; i++) {
             System.out.println(resultBooks[i]);
         }
+
+        LoanService loanService = new LoanService();
+        int i = loanService.loanBook("a", "3080000000");
+        if(i == 1)
+            System.out.println("more than one year");
+        else if(i == 2)
+            System.out.println("full");
+        else if(i == 3)
+            System.out.println("OK");
     }
 }

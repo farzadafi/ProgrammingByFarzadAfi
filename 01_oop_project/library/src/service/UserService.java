@@ -37,4 +37,8 @@ public class UserService {
         }
         return true;
     }
+
+    public User findUserByNationalCode(String nationalCode) {
+        return userRepository.findUserByNationalCode(nationalCode);
+    }
 }

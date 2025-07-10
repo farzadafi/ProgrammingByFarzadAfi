@@ -39,6 +39,10 @@ public class BookService {
         return new SimpleBook(byTitle.getTitle(), byTitle.getWriterName());
     }
 
+    public Book findByTitleWithQuantity(String title) {
+        return bookRepository.findByTitle(title);
+    }
+
 
     public SimpleBook[] getBooksByWriterName(String writerName) {
         Book[] booksByWriterName = bookRepository.findBooksByWriterName(writerName);

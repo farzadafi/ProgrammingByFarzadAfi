@@ -15,6 +15,10 @@ public class Book {
         return title;
     }
 
+    public int getQuantity() {
+        return quantity;
+    }
+
     public String getWriterName() {
         return writerName;
     }
