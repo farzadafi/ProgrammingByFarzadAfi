@@ -28,5 +28,12 @@ public class ProgrammingByFarzadAfi {
         for (int i = 0; i < allBooks.length; i++) {
             System.out.println(allBooks[i]);
         }
+
+        System.out.println();
+        SimpleBook result = bookService.findByTitle("asdfsdf");
+        if(result == null)
+            System.out.println("can't find book");
+        else
+            System.out.println(result);
     }
 }

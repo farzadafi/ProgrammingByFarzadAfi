@@ -31,4 +31,11 @@ public class BookService {
         }
         return simpleBooks;
     }
+
+    public SimpleBook findByTitle(String title) {
+        Book byTitle = bookRepository.findByTitle(title);
+        if (byTitle == null)
+            return null;
+        return new SimpleBook(byTitle.getTitle(), byTitle.getWriterName());
+    }
 }
