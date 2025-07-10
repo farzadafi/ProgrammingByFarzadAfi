@@ -37,4 +37,23 @@ public class BookRepository {
             }
         }
     }
+
+    public Book[] getBooks(int number) {
+        Book[] books = new Book[number];
+        for (int i = 0; i < number; i++) {
+            books[i] = BOOKS[i];
+        }
+        return books;
+    }
+
+    public int getNumberOfBook() {
+        int counter = 0;
+        for (int i = 0; i < BOOKS.length; i++) {
+            if(BOOKS[i] != null)
+                ++counter;
+            else
+                break;
+        }
+        return counter;
+    }
 }

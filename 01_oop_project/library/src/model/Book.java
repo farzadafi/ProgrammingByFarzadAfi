@@ -14,4 +14,17 @@ public class Book {
     public String getTitle() {
         return title;
     }
+
+    public String getWriterName() {
+        return writerName;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "title='" + title + '\'' +
+                ", writerName='" + writerName + '\'' +
+                ", quantity=" + quantity +
+                '}';
+    }
 }

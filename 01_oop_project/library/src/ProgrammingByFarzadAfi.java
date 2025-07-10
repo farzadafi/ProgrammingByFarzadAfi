@@ -1,3 +1,4 @@
+import dto.SimpleBook;
 import model.Book;
 import model.User;
 import service.BookService;
@@ -22,5 +23,10 @@ public class ProgrammingByFarzadAfi {
                 "3080000000", LocalDate.now());
         UserService userService = new UserService();
         userService.addUser(user);
+
+        SimpleBook[] allBooks = bookService.getAllBooks();
+        for (int i = 0; i < allBooks.length; i++) {
+            System.out.println(allBooks[i]);
+        }
     }
 }
