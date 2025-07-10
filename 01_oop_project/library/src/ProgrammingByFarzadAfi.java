@@ -52,6 +52,11 @@ public class ProgrammingByFarzadAfi {
         else if(i == 3)
             System.out.println("OK");
 
-        loanService.retrieveBook("3080000000", "a");
+//        loanService.retrieveBook("3080000000", "a");
+
+        String[] allLoanByNationalCode = loanService.getAllLoanByNationalCode("3080000000");
+        for (int q = 0; q < allLoanByNationalCode.length; q++) {
+            System.out.println(allLoanByNationalCode[q]);
+        }
     }
 }

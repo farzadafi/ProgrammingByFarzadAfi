@@ -52,4 +52,20 @@ public class LoanRepository {
         }
         return null;
     }
+
+    public Loan[] getLoanByNationalCode(String nationalCode) {
+        int counter = 0;
+        for (int i = 0; i < LOANS.length; i++) {
+            if (LOANS[i] != null && LOANS[i].getNationalCode().equals(nationalCode))
+                ++counter;
+        }
+        Loan[] loans = new Loan[counter];
+        int j = 0;
+        for (int i = 0; i < LOANS.length; i++) {
+            if (LOANS[i] != null && LOANS[i].getNationalCode().equals(nationalCode)) {
+                loans[j] = LOANS[i];
+            }
+        }
+        return loans;
+    }
 }

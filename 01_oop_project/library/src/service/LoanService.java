@@ -18,12 +18,12 @@ public class LoanService {
         User user = userService.findUserByNationalCode(nationalCode);
         LocalDate registerDate = user.getRegisterDate();
         LocalDate now = LocalDate.now();
-        if(registerDate.plusYears(1).isBefore(now))
+        if (registerDate.plusYears(1).isBefore(now))
             return 1;
 
         Book book = bookService.findByTitleWithQuantity(bookTitle);
         int countOfLoan = countOfLoanBookByTitle(bookTitle);
-        if(countOfLoan == book.getQuantity())
+        if (countOfLoan == book.getQuantity())
             return 2;
 
         Loan loan = new Loan(nationalCode, bookTitle, LocalDate.now().minusDays(15));
@@ -35,16 +35,25 @@ public class LoanService {
         return loanRepository.countOfLoanBookByTitle(bookTitle);
     }
 
-    public void retrieveBook(String nationalCode, String bookTitle){
+    public void retrieveBook(String nationalCode, String bookTitle) {
         LocalDate loanDate =
                 loanRepository.getLoanTimeByNationalCodeAndBookTitle(nationalCode, bookTitle);
         long between = ChronoUnit.DAYS.between(loanDate, LocalDate.now());
-        if(between > 10){
+        if (between > 10) {
             int jarimehDay = (int) (between - 10);
             int jarimeh = jarimehDay * 1000;
             System.out.println("jarimeh is:");
             System.out.println(jarimeh);
         }
         loanRepository.retrieveBook(nationalCode, bookTitle);
+    }
+
+    public String[] getAllLoanByNationalCode(String nationalCode) {
+        Loan[] loanByNationalCode = loanRepository.getLoanByNationalCode(nationalCode);
+        String[] bookTitels = new String[loanByNationalCode.length];
+        for (int i = 0; i < loanByNationalCode.length; i++) {
+            bookTitels[i] = loanByNationalCode[i].getBookTitle();
+        }
+        return bookTitels;
     }
 }
