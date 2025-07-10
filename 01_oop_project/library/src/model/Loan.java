@@ -12,4 +12,8 @@ public class Loan {
     public String getBookTitle() {
         return bookTitle;
     }
+
+    public String getNationalCode() {
+        return nationalCode;
+    }
 }

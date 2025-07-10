@@ -33,4 +33,8 @@ public class LoanService {
     public int countOfLoanBookByTitle(String bookTitle) {
         return loanRepository.countOfLoanBookByTitle(bookTitle);
     }
+
+    public void retrieveBook(String nationalCode, String bookTitle){
+        loanRepository.retrieveBook(nationalCode, bookTitle);
+    }
 }
