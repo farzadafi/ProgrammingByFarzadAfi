@@ -38,4 +38,15 @@ public class BookService {
             return null;
         return new SimpleBook(byTitle.getTitle(), byTitle.getWriterName());
     }
+
+
+    public SimpleBook[] getBooksByWriterName(String writerName) {
+        Book[] booksByWriterName = bookRepository.findBooksByWriterName(writerName);
+        SimpleBook[] simpleBooks = new SimpleBook[booksByWriterName.length];
+        for (int i = 0; i < booksByWriterName.length; i++) {
+            Book book = booksByWriterName[i];
+            simpleBooks[i] = new SimpleBook(book.getTitle(), book.getWriterName());
+        }
+        return simpleBooks;
+    }
 }

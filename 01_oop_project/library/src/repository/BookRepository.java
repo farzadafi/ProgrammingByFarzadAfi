@@ -17,7 +17,7 @@ public class BookRepository {
 
     public Book findByTitle(String title) {
         for (int i = 0; i < BOOKS.length; i++) {
-            if(BOOKS[i] != null && BOOKS[i].getTitle().equals(title))
+            if (BOOKS[i] != null && BOOKS[i].getTitle().equals(title))
                 return BOOKS[i];
         }
         return null;
@@ -26,14 +26,14 @@ public class BookRepository {
     public void removeByTitle(String title) {
         int i;
         for (i = 0; i < BOOKS.length; i++) {
-            if(BOOKS[i].getTitle().equals(title))
+            if (BOOKS[i].getTitle().equals(title))
                 break;
         }
         BOOKS[i] = null;
         for (int j = i; j < BOOKS.length; j++) {
-            if(BOOKS[i + 1] != null) {
+            if (BOOKS[i + 1] != null) {
                 BOOKS[i] = BOOKS[i + 1];
-                BOOKS[i + 1] =  null;
+                BOOKS[i + 1] = null;
             }
         }
     }
@@ -49,11 +49,32 @@ public class BookRepository {
     public int getNumberOfBook() {
         int counter = 0;
         for (int i = 0; i < BOOKS.length; i++) {
-            if(BOOKS[i] != null)
+            if (BOOKS[i] != null)
                 ++counter;
             else
                 break;
         }
         return counter;
+    }
+
+    public Book[] findBooksByWriterName(String writerName) {
+        int counter = 0;
+        for (int i = 0; i < BOOKS.length; i++) {
+            if (BOOKS[i] != null && BOOKS[i].getWriterName().equals(writerName))
+                ++counter;
+            else if (BOOKS[i] == null)
+                break;
+        }
+        Book[] booksByWriterName = new Book[counter];
+        int j = 0;
+        for (int i = 0; i < BOOKS.length; i++) {
+            if (BOOKS[i].getWriterName().equals(writerName)) {
+                booksByWriterName[j] = BOOKS[i];
+                ++j;
+            }
+            if (j == counter)
+                break;
+        }
+        return booksByWriterName;
     }
 }
