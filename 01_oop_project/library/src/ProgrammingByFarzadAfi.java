@@ -51,5 +51,7 @@ public class ProgrammingByFarzadAfi {
             System.out.println("full");
         else if(i == 3)
             System.out.println("OK");
+
+        loanService.retrieveBook("3080000000", "a");
     }
 }

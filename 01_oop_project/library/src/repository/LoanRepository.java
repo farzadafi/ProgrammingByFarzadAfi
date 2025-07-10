@@ -2,6 +2,8 @@ package repository;
 
 import model.Loan;
 
+import java.time.LocalDate;
+
 public class LoanRepository {
 
     private static final Loan[] LOANS = new Loan[100];
@@ -38,5 +40,16 @@ public class LoanRepository {
                 LOANS[i + 1] = null;
             }
         }
+    }
+
+    public LocalDate getLoanTimeByNationalCodeAndBookTitle(
+            String nationalCode,
+            String bookTile) {
+        for (int i = 0; i < LOANS.length; i++) {
+            if (LOANS[i].getBookTitle().equals(bookTile) &&
+                    LOANS[i].getNationalCode().equals(nationalCode))
+                return LOANS[i].getLoanDate();
+        }
+        return null;
     }
 }
