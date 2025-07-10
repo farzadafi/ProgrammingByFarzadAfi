@@ -1,5 +1,7 @@
 import model.Book;
+import model.User;
 import service.BookService;
+import service.UserService;
 
 public class ProgrammingByFarzadAfi {
     public static void main(String[] args) {
@@ -13,5 +15,9 @@ public class ProgrammingByFarzadAfi {
 
 
         bookService.remove("b");
+
+        User user = new User("abc", "abcd", "3080000000");
+        UserService userService = new UserService();
+        userService.addUser(user);
     }
 }
