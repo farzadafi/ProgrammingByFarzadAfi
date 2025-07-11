@@ -56,4 +56,8 @@ public class LoanService {
         }
         return bookTitels;
     }
+
+    public boolean isLoan(String title) {
+        return loanRepository.isLoan(title);
+    }
 }

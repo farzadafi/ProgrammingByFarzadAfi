@@ -68,4 +68,12 @@ public class LoanRepository {
         }
         return loans;
     }
+
+    public boolean isLoan(String title) {
+        for (int i = 0; i < LOANS.length; i++) {
+            if(LOANS[i] != null && LOANS[i].getBookTitle().equals(title))
+                return true;
+        }
+        return false;
+    }
 }
