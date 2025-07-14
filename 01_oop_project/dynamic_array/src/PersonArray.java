@@ -8,8 +8,17 @@ public class PersonArray {
     }
 
     public void add(Person person) {
-        System.out.println("person " + size + " added");
+        if (size == people.length)
+            resize();
         people[size] = person;
         ++size;
+    }
+
+    public void resize() {
+        Person[] newPeople = new Person[people.length * 2];
+        for (int i = 0; i < people.length; i++) {
+            newPeople[i] = people[i];
+        }
+        people = newPeople;
     }
 }

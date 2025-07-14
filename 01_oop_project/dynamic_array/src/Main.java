@@ -1,16 +1,8 @@
 public class Main {
     public static void main(String[] args) {
         PersonArray personArray = new PersonArray();
-        personArray.add(new Person());
-        personArray.add(new Person());
-        personArray.add(new Person());
-        personArray.add(new Person());
-        personArray.add(new Person());
-        personArray.add(new Person());
-        personArray.add(new Person());
-        personArray.add(new Person());
-        personArray.add(new Person());
-        personArray.add(new Person());
-        personArray.add(new Person());
+        for (int i = 0; i < 15; i++) {
+            personArray.add(new Person());
+        }
     }
 }
