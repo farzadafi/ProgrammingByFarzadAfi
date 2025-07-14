@@ -21,4 +21,8 @@ public class PersonArray {
         }
         people = newPeople;
     }
+
+    public int getSize() {
+        return size;
+    }
 }

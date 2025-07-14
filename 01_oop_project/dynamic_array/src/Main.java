@@ -4,5 +4,7 @@ public class Main {
         for (int i = 0; i < 15; i++) {
             personArray.add(new Person());
         }
+
+        System.out.println(personArray.getSize());
     }
 }
