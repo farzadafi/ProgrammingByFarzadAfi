@@ -9,6 +9,10 @@ public class Main {
         System.out.println(personArray.getSize());
         System.out.println(personArray.isEmpty());
         System.out.println(personArray.getByIndex(1));
+        Object byIndex = personArray.getByIndex(1);
+        Person person = (Person) byIndex;
+        System.out.println("*****");
+        person.printFullName();
         personArray.clear();
         System.out.println(personArray.isEmpty());
         System.out.println(personArray.getSize());

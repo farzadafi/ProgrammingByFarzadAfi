@@ -12,6 +12,10 @@ public class Person {
     public Person() {
     }
 
+    public void printFullName() {
+        System.out.println(name + " " + lastname);
+    }
+
     @Override
     public String toString() {
         return "Person{" +
