@@ -1,16 +1,15 @@
 public class PersonArray {
     private Person[] people;
+    private int size;
 
     public PersonArray() {
         people = new Person[10];
+        size = 0;
     }
 
     public void add(Person person) {
-        for (int i = 0; i < people.length; i++) {
-            if(people[i] == null){
-                people[i] = person;
-                break;
-            }
-        }
+        System.out.println("person " + size + " added");
+        people[size] = person;
+        ++size;
     }
 }
