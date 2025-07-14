@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Person {
     private String name;
     private String lastname;
@@ -16,5 +18,17 @@ public class Person {
                 "name='" + name + '\'' +
                 ", lastname='" + lastname + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (object == null || getClass() != object.getClass()) return false;
+        Person person = (Person) object;
+        return Objects.equals(name, person.name) && Objects.equals(lastname, person.lastname);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, lastname);
     }
 }

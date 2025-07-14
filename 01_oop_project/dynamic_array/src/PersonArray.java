@@ -40,4 +40,14 @@ public class PersonArray {
         people = new Person[10];
         size = 0;
     }
+
+    public boolean contain(Person person) {
+        if(person == null)
+            return false;
+        for (int i = 0; i < size; i++) {
+            if(people[i].equals(person))
+                return true;
+        }
+        return false;
+    }
 }

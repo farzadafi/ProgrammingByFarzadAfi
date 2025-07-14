@@ -9,8 +9,13 @@ public class Main {
         System.out.println(personArray.getSize());
         System.out.println(personArray.isEmpty());
         System.out.println(personArray.getByIndex(1));
-        personArray.clear();
+//        personArray.clear();
         System.out.println(personArray.isEmpty());
         System.out.println(personArray.getSize());
+
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(personArray.contain(new Person("f1", "d")));
     }
 }
