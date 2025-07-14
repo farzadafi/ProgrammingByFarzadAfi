@@ -29,4 +29,10 @@ public class PersonArray {
     public boolean isEmpty() {
         return size == 0;
     }
+
+    public Person getByIndex(int index) {
+        if(index < 0 || index > size)
+            return null;
+        return people[index];
+    }
 }
