@@ -35,4 +35,9 @@ public class PersonArray {
             return null;
         return people[index];
     }
+
+    public void clear() {
+        people = new Person[10];
+        size = 0;
+    }
 }

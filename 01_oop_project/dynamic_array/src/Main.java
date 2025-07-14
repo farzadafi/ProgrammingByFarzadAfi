@@ -5,9 +5,12 @@ public class Main {
         personArray.add(new Person("f1", "d"));
         personArray.add(new Person("f2", "d"));
         personArray.add(new Person("f3", "d"));
+
         System.out.println(personArray.getSize());
         System.out.println(personArray.isEmpty());
-
         System.out.println(personArray.getByIndex(1));
+        personArray.clear();
+        System.out.println(personArray.isEmpty());
+        System.out.println(personArray.getSize());
     }
 }
