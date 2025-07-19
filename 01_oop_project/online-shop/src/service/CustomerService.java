@@ -27,6 +27,10 @@ public class CustomerService {
         return true;
     }
 
+    public void updateAddress(String email, String address) {
+        customerRepository.updateAddress(email, address);
+    }
+
     public boolean isValidName(String name) {
         if (name.length() < 3)
             return false;

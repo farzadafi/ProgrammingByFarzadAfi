@@ -26,4 +26,13 @@ public class CustomerRepository {
         }
         return null;
     }
+
+    public void updateAddress(String email, String address) {
+        for (int i = 0; i < size; i++) {
+            if(CUSTOMERS[i].getEmail().equals(email)) {
+                CUSTOMERS[i].setAddress(address);
+                break;
+            }
+        }
+    }
 }
