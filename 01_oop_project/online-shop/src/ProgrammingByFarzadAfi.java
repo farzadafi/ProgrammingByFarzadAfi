@@ -1,4 +1,6 @@
+import model.Category;
 import model.Customer;
+import service.CategoryService;
 import service.CustomerService;
 
 public class ProgrammingByFarzadAfi {
@@ -11,5 +13,10 @@ public class ProgrammingByFarzadAfi {
         //return of signIn method
 //        System.out.println(customerService.signIn("test@gmial.com", "aA1!sldjk"));
         customerService.updateAddress("test@gmail.com", "kerman");
+
+        //category
+        Category test = new Category("test");
+        CategoryService categoryService = new CategoryService();
+        System.out.println(categoryService.add(test));
     }
 }
