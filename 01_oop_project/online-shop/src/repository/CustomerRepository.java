@@ -18,4 +18,12 @@ public class CustomerRepository {
     public int getNextId(){
         return size + 1;
     }
+
+    public Customer findByEmail(String email) {
+        for (int i = 0; i < size; i++) {
+            if(CUSTOMERS[i].getEmail().equals(email))
+                return CUSTOMERS[i];
+        }
+        return null;
+    }
 }

@@ -8,14 +8,23 @@ public class CustomerService {
     private final CustomerRepository customerRepository = new CustomerRepository();
 
     public boolean register(Customer customer) {
-        if(!isValidName(customer.getName()))
+        if (!isValidName(customer.getName()))
             return false;
-        if(!isValidPassword(customer.getPassword()))
+        if (!isValidPassword(customer.getPassword()))
             return false;
-        if(!isValidEmail(customer.getEmail()))
+        if (!isValidEmail(customer.getEmail()))
             return false;
         customer.setId(customerRepository.getNextId());
         return customerRepository.save(customer);
+    }
+
+    public boolean signIn(String email, String password) {
+        Customer byEmail = customerRepository.findByEmail(email);
+        if (byEmail == null)
+            return false;
+        if (!byEmail.getPassword().equals(password))
+            return false;
+        return true;
     }
 
     public boolean isValidName(String name) {
