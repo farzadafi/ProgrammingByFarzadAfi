@@ -40,4 +40,15 @@ public class Product {
     public String getDescription() {
         return description;
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                ", categoryId=" + categoryId +
+                '}';
+    }
 }
