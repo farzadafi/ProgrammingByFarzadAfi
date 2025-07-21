@@ -24,7 +24,9 @@ public class ProgrammingByFarzadAfi {
         Product product = new Product("test", 200, "good");
         ProductService productService = new ProductService();
         System.out.println(productService.add(product, "test"));
-        Product product1 = new Product("test", 200, "good");
+        Product product1 = new Product("test1", 200, "good");
         System.out.println(productService.add(product1, "test"));
+
+        System.out.println(productService.findProductByName("test"));
     }
 }

@@ -1,5 +1,6 @@
 package service;
 
+import dto.ProductWithCategoryName;
 import model.Product;
 import repository.ProductRepository;
 
@@ -16,5 +17,15 @@ public class ProductService {
         product.setId(id);
         product.setCategoryId(idFromCategoryName);
         return productRepository.save(product);
+    }
+
+    public ProductWithCategoryName findProductByName(String name) {
+        Product product = productRepository.findByName(name);
+        String categoryName = categoryService.getCategoryNameFromId(product.getCategoryId());
+        return new ProductWithCategoryName(product.getId(),
+                product.getName(),
+                product.getDescription(),
+                product.getPrice(),
+                categoryName);
     }
 }

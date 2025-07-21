@@ -20,4 +20,24 @@ public class Product {
     public void setCategoryId(int categoryId) {
         this.categoryId = categoryId;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getCategoryId() {
+        return categoryId;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public String getDescription() {
+        return description;
+    }
 }

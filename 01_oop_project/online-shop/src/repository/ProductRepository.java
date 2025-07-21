@@ -18,4 +18,12 @@ public class ProductRepository {
         ++size;
         return true;
     }
+
+    public Product findByName(String name) {
+        for (int i = 0; i < size; i++) {
+            if(PRODUCTS[i].getName().equals(name))
+                return PRODUCTS[i];
+        }
+        return null;
+    }
 }

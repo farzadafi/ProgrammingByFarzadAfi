@@ -17,4 +17,9 @@ public class CategoryService {
     public int getIdFromCategoryName(String name) {
         return categoryRepository.getIdFromName(name);
     }
+
+    public String getCategoryNameFromId(int id) {
+        Category byId = categoryRepository.findById(id);
+        return byId.getName();
+    }
 }

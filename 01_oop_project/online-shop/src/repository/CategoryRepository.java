@@ -11,14 +11,14 @@ public class CategoryRepository {
 
     public boolean isDuplicateName(String name) {
         for (int i = 0; i < size; i++) {
-            if(CATEGORIES[i].getName().equals(name))
+            if (CATEGORIES[i].getName().equals(name))
                 return true;
         }
         return false;
     }
 
     public boolean save(Category category) {
-        if(CATEGORIES[size] != null)
+        if (CATEGORIES[size] != null)
             return false;
         CATEGORIES[size] = category;
         ++size;
@@ -31,9 +31,17 @@ public class CategoryRepository {
 
     public int getIdFromName(String name) {
         for (int i = 0; i < size; i++) {
-            if(CATEGORIES[i].getName().equals(name))
+            if (CATEGORIES[i].getName().equals(name))
                 return CATEGORIES[i].getId();
         }
         return -1;
+    }
+
+    public Category findById(int id) {
+        for (int i = 0; i < size; i++) {
+            if (CATEGORIES[i].getId() == id)
+                return CATEGORIES[i];
+        }
+        return null;
     }
 }
