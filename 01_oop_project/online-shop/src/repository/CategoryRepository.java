@@ -7,7 +7,7 @@ import java.util.DuplicateFormatFlagsException;
 public class CategoryRepository {
 
     private static final Category[] CATEGORIES = new Category[100];
-    private int size = 0;
+    private static int size = 0;
 
     public boolean isDuplicateName(String name) {
         for (int i = 0; i < size; i++) {
@@ -27,5 +27,13 @@ public class CategoryRepository {
 
     public int getNextId() {
         return size + 1;
+    }
+
+    public int getIdFromName(String name) {
+        for (int i = 0; i < size; i++) {
+            if(CATEGORIES[i].getName().equals(name))
+                return CATEGORIES[i].getId();
+        }
+        return -1;
     }
 }

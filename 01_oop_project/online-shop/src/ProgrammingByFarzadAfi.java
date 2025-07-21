@@ -1,7 +1,9 @@
 import model.Category;
 import model.Customer;
+import model.Product;
 import service.CategoryService;
 import service.CustomerService;
+import service.ProductService;
 
 public class ProgrammingByFarzadAfi {
     public static void main(String[] args) {
@@ -18,5 +20,11 @@ public class ProgrammingByFarzadAfi {
         Category test = new Category("test");
         CategoryService categoryService = new CategoryService();
         System.out.println(categoryService.add(test));
+
+        Product product = new Product("test", 200, "good");
+        ProductService productService = new ProductService();
+        System.out.println(productService.add(product, "test"));
+        Product product1 = new Product("test", 200, "good");
+        System.out.println(productService.add(product1, "test"));
     }
 }

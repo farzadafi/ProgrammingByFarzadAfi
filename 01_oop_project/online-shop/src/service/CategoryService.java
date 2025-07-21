@@ -13,4 +13,8 @@ public class CategoryService {
         category.setId(categoryRepository.getNextId());
         return categoryRepository.save(category);
     }
+
+    public int getIdFromCategoryName(String name) {
+        return categoryRepository.getIdFromName(name);
+    }
 }
