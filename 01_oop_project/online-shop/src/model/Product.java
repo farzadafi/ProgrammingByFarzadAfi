@@ -47,6 +47,10 @@ public class Product {
         return description;
     }
 
+    public void setQuantity(int quantity){
+        this.quantity = quantity;
+    }
+
     @Override
     public String toString() {
         return "Product{" +

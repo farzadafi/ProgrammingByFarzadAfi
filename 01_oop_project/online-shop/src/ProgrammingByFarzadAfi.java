@@ -65,5 +65,13 @@ public class ProgrammingByFarzadAfi {
 
         System.out.println("\n \n print shoppingCart total price");
         System.out.println(shoppingCartService.getTotalPriceForShoppingCart(shoppingCartId));
+
+        System.out.println("\n \n process shopping cart");
+        System.out.println(shoppingCartService.processShoppingCart(1));
+        System.out.println("products ASC");
+        for (int i = 0; i < test1.length; i++) {
+            System.out.println(test1[i]);
+        }
+        System.out.println("-------------------------------------");
     }
 }

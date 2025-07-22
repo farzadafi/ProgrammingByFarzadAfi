@@ -49,10 +49,24 @@ public class ProductRepository {
         DynamicArray productsDynamicArray = new DynamicArray("Product");
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < dynamicArray.getSize(); j++) {
-                if(PRODUCTS[i].getId() == (int) dynamicArray.getByIndex(j))
+                if (PRODUCTS[i].getId() == (int) dynamicArray.getByIndex(j))
                     productsDynamicArray.add(PRODUCTS[i]);
             }
         }
         return productsDynamicArray;
+    }
+
+    public void minesQuantity(DynamicArray productIds) {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < productIds.getSize(); j++) {
+                int productId = (int) productIds.getByIndex(j);
+                if (PRODUCTS[i].getId() == productId) {
+                    Product product = PRODUCTS[i];
+                    int newQuantity = product.getQuantity() - 1;
+                    product.setQuantity(newQuantity);
+                    PRODUCTS[i] = product;
+                }
+            }
+        }
     }
 }

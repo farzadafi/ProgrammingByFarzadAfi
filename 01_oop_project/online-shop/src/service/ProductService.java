@@ -81,4 +81,8 @@ public class ProductService {
     public DynamicArray getProductsById(DynamicArray productsDynamicArray) {
         return productRepository.getProductsById(productsDynamicArray);
     }
+
+    public void minesQuantityOfProduct(DynamicArray productId) {
+        productRepository.minesQuantity(productId);
+    }
 }

@@ -27,4 +27,10 @@ public class ShoppingCartService {
         }
         return totalPrice;
     }
+
+    public boolean processShoppingCart(int shoppingCartId) {
+        DynamicArray productId = cartItemService.getProductIdByShoppingCartId(shoppingCartId);
+        productService.minesQuantityOfProduct(productId);
+        return true;
+    }
 }
