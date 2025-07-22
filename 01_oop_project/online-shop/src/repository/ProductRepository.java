@@ -36,4 +36,12 @@ public class ProductRepository {
         }
         return products;
     }
+
+    public int getQuantityById(int id) {
+        for (int i = 0; i < size; i++) {
+            if(PRODUCTS[i].getId() == id)
+                return PRODUCTS[i].getQuantity();
+        }
+        return -1;
+    }
 }

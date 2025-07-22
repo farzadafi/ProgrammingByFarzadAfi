@@ -17,4 +17,8 @@ public class ShoppingCart {
     public ShoppingCart(int customerId) {
         this.customerId = customerId;
     }
+
+    public int getId() {
+        return id;
+    }
 }

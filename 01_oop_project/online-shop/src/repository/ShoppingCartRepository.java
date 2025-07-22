@@ -11,11 +11,11 @@ public class ShoppingCartRepository {
         return size + 1;
     }
 
-    public boolean save(ShoppingCart shoppingCart) {
+    public int save(ShoppingCart shoppingCart) {
         if (SHOPPING_CARTS[size] != null)
-            return false;
+            return -1;
         SHOPPING_CARTS[size] = shoppingCart;
         ++size;
-        return true;
+        return SHOPPING_CARTS[size - 1].getId();
     }
 }

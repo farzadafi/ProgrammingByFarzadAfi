@@ -73,4 +73,8 @@ public class ProductService {
         }
         return products;
     }
+
+    public int getQuantityById(int prodcutId) {
+        return productRepository.getQuantityById(prodcutId);
+    }
 }

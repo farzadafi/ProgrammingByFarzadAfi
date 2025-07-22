@@ -1,12 +1,6 @@
-import model.Category;
-import model.Customer;
-import model.Product;
-import model.ShoppingCart;
+import model.*;
 import model.enumeration.SortType;
-import service.CategoryService;
-import service.CustomerService;
-import service.ProductService;
-import service.ShoppingCartService;
+import service.*;
 
 public class ProgrammingByFarzadAfi {
     public static void main(String[] args) {
@@ -31,11 +25,11 @@ public class ProgrammingByFarzadAfi {
         System.out.println("-------------------------------------");
 
         System.out.println("add products:");
-        Product product = new Product("poco", 100, "xi");
+        Product product = new Product("poco", 100, "xi", 20);
         ProductService productService = new ProductService();
         System.out.println(productService.add(product, "phone"));
-        Product product1 = new Product("samsung s20", 200, "good");
-        Product product2 = new Product("samsung s30", 550, "good");
+        Product product1 = new Product("samsung s20", 200, "good", 20);
+        Product product2 = new Product("samsung s30", 550, "good", 10);
         System.out.println(productService.add(product2, "phone"));
         System.out.println(productService.add(product1, "phone"));
         System.out.println(productService.findProductByName("poco"));
@@ -58,7 +52,13 @@ public class ProgrammingByFarzadAfi {
         System.out.println("\n register new shopping cart for customer 1");
         ShoppingCartService shoppingCartService = new ShoppingCartService();
         ShoppingCart shoppingCart = new ShoppingCart(1);
-        System.out.println(shoppingCartService.add(shoppingCart));
+        int shoppingCartId = shoppingCartService.add(shoppingCart);
+        System.out.println(shoppingCartId);
         System.out.println("-------------------------------------");
+
+        System.out.println("\n add a cart item :)");
+        CartItemService cartItemService = new CartItemService();
+        CartItem cartItem = new CartItem(shoppingCartId, 1);
+        System.out.println(cartItemService.add(cartItem));
     }
 }

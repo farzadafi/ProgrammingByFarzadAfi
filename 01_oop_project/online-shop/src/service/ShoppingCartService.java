@@ -7,10 +7,9 @@ public class ShoppingCartService {
 
     private final ShoppingCartRepository shoppingCartRepository = new ShoppingCartRepository();
 
-    public boolean add(ShoppingCart shoppingCart){
+    public int add(ShoppingCart shoppingCart) {
         int nextId = shoppingCartRepository.getNextId();
         shoppingCart.setId(nextId);
-        shoppingCartRepository.save(shoppingCart);
-        return true;
+        return shoppingCartRepository.save(shoppingCart);
     }
 }
