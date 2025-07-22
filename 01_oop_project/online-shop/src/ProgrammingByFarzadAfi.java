@@ -59,6 +59,11 @@ public class ProgrammingByFarzadAfi {
         System.out.println("\n add a cart item :)");
         CartItemService cartItemService = new CartItemService();
         CartItem cartItem = new CartItem(shoppingCartId, 1);
+        CartItem cartItem1 = new CartItem(shoppingCartId, 2);
         System.out.println(cartItemService.add(cartItem));
+        System.out.println(cartItemService.add(cartItem1));
+
+        System.out.println("\n \n print shoppingCart total price");
+        System.out.println(shoppingCartService.getTotalPriceForShoppingCart(shoppingCartId));
     }
 }

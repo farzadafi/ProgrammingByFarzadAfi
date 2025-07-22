@@ -77,4 +77,8 @@ public class ProductService {
     public int getQuantityById(int prodcutId) {
         return productRepository.getQuantityById(prodcutId);
     }
+
+    public DynamicArray getProductsById(DynamicArray productsDynamicArray) {
+        return productRepository.getProductsById(productsDynamicArray);
+    }
 }

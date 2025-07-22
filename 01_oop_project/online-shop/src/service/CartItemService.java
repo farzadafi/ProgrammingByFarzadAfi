@@ -2,6 +2,7 @@ package service;
 
 import model.CartItem;
 import repository.CartItemRepository;
+import util.DynamicArray;
 
 public class CartItemService {
 
@@ -13,5 +14,9 @@ public class CartItemService {
         if (productQuantity < 1)
             return false;
         return cartItemRepository.save(cartItem);
+    }
+
+    public DynamicArray getProductIdByShoppingCartId(int shoppingCartId) {
+        return cartItemRepository.getProductIdByShoppingCartId(shoppingCartId);
     }
 }

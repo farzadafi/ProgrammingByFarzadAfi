@@ -13,7 +13,7 @@ public class ProductRepository {
     }
 
     public boolean save(Product product) {
-        if(PRODUCTS[size] != null)
+        if (PRODUCTS[size] != null)
             return false;
         PRODUCTS[size] = product;
         ++size;
@@ -22,7 +22,7 @@ public class ProductRepository {
 
     public Product findByName(String name) {
         for (int i = 0; i < size; i++) {
-            if(PRODUCTS[i].getName().equals(name))
+            if (PRODUCTS[i].getName().equals(name))
                 return PRODUCTS[i];
         }
         return null;
@@ -31,7 +31,7 @@ public class ProductRepository {
     public DynamicArray getProductsByCategoryId(int categoryId) {
         DynamicArray products = new DynamicArray("Product");
         for (int i = 0; i < size; i++) {
-            if(PRODUCTS[i].getCategoryId() == categoryId)
+            if (PRODUCTS[i].getCategoryId() == categoryId)
                 products.add(PRODUCTS[i]);
         }
         return products;
@@ -39,9 +39,20 @@ public class ProductRepository {
 
     public int getQuantityById(int id) {
         for (int i = 0; i < size; i++) {
-            if(PRODUCTS[i].getId() == id)
+            if (PRODUCTS[i].getId() == id)
                 return PRODUCTS[i].getQuantity();
         }
         return -1;
+    }
+
+    public DynamicArray getProductsById(DynamicArray dynamicArray) {
+        DynamicArray productsDynamicArray = new DynamicArray("Product");
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < dynamicArray.getSize(); j++) {
+                if(PRODUCTS[i].getId() == (int) dynamicArray.getByIndex(j))
+                    productsDynamicArray.add(PRODUCTS[i]);
+            }
+        }
+        return productsDynamicArray;
     }
 }
