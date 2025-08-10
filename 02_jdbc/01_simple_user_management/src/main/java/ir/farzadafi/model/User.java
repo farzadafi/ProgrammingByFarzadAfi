@@ -14,6 +14,13 @@ public class User {
         this.password = password;
     }
 
+    public User(int id, String name, int age, String username) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.username = username;
+    }
+
     public User() {}
 
     public int getId() {
@@ -34,5 +41,15 @@ public class User {
 
     public String getPassword() {
         return password;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", username='" + username + '\'' +
+                '}';
     }
 }

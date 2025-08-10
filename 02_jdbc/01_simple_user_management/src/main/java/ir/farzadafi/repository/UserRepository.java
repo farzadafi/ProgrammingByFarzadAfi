@@ -1,6 +1,7 @@
 package ir.farzadafi.repository;
 
 import ir.farzadafi.model.User;
+import ir.farzadafi.utility.DynamicArray;
 
 import java.sql.*;
 
@@ -20,8 +21,9 @@ public class UserRepository {
         preparedStatement.setInt(2, user.getAge());
         preparedStatement.setString(3, user.getUsername());
         preparedStatement.setString(4, user.getPassword());
+        int i = preparedStatement.executeUpdate();
         connection.close();
-        return preparedStatement.executeUpdate();
+        return i;
     }
 
     public boolean isExistUsername(String username) throws SQLException {
@@ -70,5 +72,20 @@ public class UserRepository {
         int i = preparedStatement.executeUpdate();
         connection.close();
         return i;
+    }
+
+    public DynamicArray findAll() throws SQLException {
+        Connection connection = getConnection();
+        String query = "SELECT * FROM users";
+        ResultSet resultSet = connection.prepareStatement(query).executeQuery();
+        DynamicArray dynamicArray = new DynamicArray("User");
+        while (resultSet.next()) {
+            User user = new User(resultSet.getInt("id"),
+                    resultSet.getString("name"),
+                    resultSet.getInt("age"),
+                    resultSet.getString("username"));
+            dynamicArray.add(user);
+        }
+        return dynamicArray;
     }
 }

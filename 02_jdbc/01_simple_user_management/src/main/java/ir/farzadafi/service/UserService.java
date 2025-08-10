@@ -2,6 +2,7 @@ package ir.farzadafi.service;
 
 import ir.farzadafi.model.User;
 import ir.farzadafi.repository.UserRepository;
+import ir.farzadafi.utility.DynamicArray;
 import ir.farzadafi.utility.Validator;
 
 import java.sql.SQLException;
@@ -44,5 +45,9 @@ public class UserService {
         if(!existUsername)
             return -1;
         return userRepository.removeByUsername(username);
+    }
+
+    public DynamicArray findAllUser() throws SQLException {
+        return userRepository.findAll();
     }
 }
