@@ -61,4 +61,14 @@ public class UserRepository {
         connection.close();
         return i;
     }
+
+    public int removeByUsername(String username) throws SQLException {
+        Connection connection = getConnection();
+        String query = "DELETE from users WHERE username = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setString(1, username);
+        int i = preparedStatement.executeUpdate();
+        connection.close();
+        return i;
+    }
 }

@@ -38,4 +38,11 @@ public class UserService {
             return -1;
         return userRepository.updateName(username, newName);
     }
+
+    public int removeByUsername(String username) throws SQLException {
+        boolean existUsername = userRepository.isExistUsername(username);
+        if(!existUsername)
+            return -1;
+        return userRepository.removeByUsername(username);
+    }
 }

@@ -11,10 +11,15 @@ public class ProgrammingByFarzadAfi {
 //        User user = new User("test", 50, "farzad", "aA1!45435");
 //        System.out.println(userService.register(user));
 //        System.out.println(userService.login("farzad", "aA1!45435"));
-        int i = userService.updateName("farzad", "farzadAfshar");
+//        int i = userService.updateName("farzad", "farzadAfshar");
+//        if(i == -1)
+//            System.out.println("cant find username");
+//        else
+//            System.out.println("update OK!");
+        int i = userService.removeByUsername("farzad");
         if(i == -1)
-            System.out.println("cant find username");
+            System.out.println("cant find for remove");
         else
-            System.out.println("update OK!");
+            System.out.println("remove OK!");
     }
 }
