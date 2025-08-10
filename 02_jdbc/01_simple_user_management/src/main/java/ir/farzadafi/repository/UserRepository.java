@@ -20,6 +20,7 @@ public class UserRepository {
         preparedStatement.setInt(2, user.getAge());
         preparedStatement.setString(3, user.getUsername());
         preparedStatement.setString(4, user.getPassword());
+        connection.close();
         return preparedStatement.executeUpdate();
     }
 
@@ -29,6 +30,24 @@ public class UserRepository {
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setString(1, username);
         ResultSet resultSet = preparedStatement.executeQuery();
+        connection.close();
         return resultSet.next();
+    }
+
+    public User findByUsername(String username) throws SQLException {
+        Connection connection = getConnection();
+        String query = "SELECT * FROM users u WHERE u.username = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setString(1, username);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        User user = null;
+        if (resultSet.next()) {
+            user = new User(resultSet.getString("name"),
+                    resultSet.getInt("age"),
+                    resultSet.getString("username"),
+                    resultSet.getString("password"));
+        }
+        connection.close();
+        return user;
     }
 }

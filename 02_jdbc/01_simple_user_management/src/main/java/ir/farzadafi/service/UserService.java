@@ -23,7 +23,12 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public UserRepository getUserRepository() {
-        return userRepository;
+    public boolean login(String username, String password) throws SQLException {
+        User byUsername = userRepository.findByUsername(username);
+        if(byUsername == null)
+            return false;
+        if(!byUsername.getPassword().equals(password))
+            return false;
+        return true;
     }
 }
