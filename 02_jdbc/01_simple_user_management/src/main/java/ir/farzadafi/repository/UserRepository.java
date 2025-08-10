@@ -50,4 +50,15 @@ public class UserRepository {
         connection.close();
         return user;
     }
+
+    public int updateName(String username, String newName) throws SQLException {
+        Connection connection = getConnection();
+        String query = "UPDATE users SET name = ? WHERE username = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setString(1, newName);
+        preparedStatement.setString(2, username);
+        int i = preparedStatement.executeUpdate();
+        connection.close();
+        return i;
+    }
 }

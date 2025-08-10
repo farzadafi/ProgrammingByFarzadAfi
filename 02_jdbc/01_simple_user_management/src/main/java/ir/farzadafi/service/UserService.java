@@ -31,4 +31,11 @@ public class UserService {
             return false;
         return true;
     }
+
+    public int updateName(String username, String newName) throws SQLException {
+        boolean existUsername = userRepository.isExistUsername(username);
+        if(!existUsername)
+            return -1;
+        return userRepository.updateName(username, newName);
+    }
 }
