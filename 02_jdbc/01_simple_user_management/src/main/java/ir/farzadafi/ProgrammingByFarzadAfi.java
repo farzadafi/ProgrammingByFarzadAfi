@@ -1,6 +1,7 @@
 package ir.farzadafi;
 
 import ir.farzadafi.model.User;
+import ir.farzadafi.model.enumeration.OrderType;
 import ir.farzadafi.service.UserService;
 import ir.farzadafi.utility.DynamicArray;
 
@@ -10,8 +11,8 @@ public class ProgrammingByFarzadAfi {
     public static void main(String[] args) throws SQLException {
         UserService userService = new UserService();
         //insert
-        User user = new User("test", 26, "Arman", "aA1!45435");
-        System.out.println(userService.register(user));
+//        User user = new User("test", 26, "Arman", "aA1!45435");
+//        System.out.println(userService.register(user));
 
         //login
 //        System.out.println(userService.login("farzad", "aA1!45435"));
@@ -31,9 +32,18 @@ public class ProgrammingByFarzadAfi {
 //            System.out.println("remove OK!");
 
         //findAll
+        System.out.println("find all is:");
         DynamicArray allUser = userService.findAllUser();
         for (int i = 0; i < allUser.getSize(); i++) {
             System.out.println(allUser.getByIndex(i));
+        }
+        System.out.println();
+
+        //find all with sort
+        System.out.println("find all by order is:");
+        DynamicArray allUserByOrder = userService.findAllUserAndOrderBy(OrderType.DESC);
+        for (int i = 0; i < allUserByOrder.getSize(); i++) {
+            System.out.println(allUserByOrder.getByIndex(i));
         }
     }
 

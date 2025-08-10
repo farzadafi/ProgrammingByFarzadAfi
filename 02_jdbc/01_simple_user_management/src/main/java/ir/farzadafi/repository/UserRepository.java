@@ -1,6 +1,7 @@
 package ir.farzadafi.repository;
 
 import ir.farzadafi.model.User;
+import ir.farzadafi.model.enumeration.OrderType;
 import ir.farzadafi.utility.DynamicArray;
 
 import java.sql.*;
@@ -78,6 +79,22 @@ public class UserRepository {
         Connection connection = getConnection();
         String query = "SELECT * FROM users";
         ResultSet resultSet = connection.prepareStatement(query).executeQuery();
+        DynamicArray dynamicArray = new DynamicArray("User");
+        while (resultSet.next()) {
+            User user = new User(resultSet.getInt("id"),
+                    resultSet.getString("name"),
+                    resultSet.getInt("age"),
+                    resultSet.getString("username"));
+            dynamicArray.add(user);
+        }
+        return dynamicArray;
+    }
+
+    public DynamicArray findAllByOrder(String orderDirection) throws SQLException {
+        Connection connection = getConnection();
+        String query = "SELECT * FROM users u ORDER BY u.age " + orderDirection;
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        ResultSet resultSet = preparedStatement.executeQuery();
         DynamicArray dynamicArray = new DynamicArray("User");
         while (resultSet.next()) {
             User user = new User(resultSet.getInt("id"),
