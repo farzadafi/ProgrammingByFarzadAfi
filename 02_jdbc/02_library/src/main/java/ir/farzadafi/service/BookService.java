@@ -14,4 +14,11 @@ public class BookService {
             return -1;
         return bookRepository.save(book);
     }
+
+    public int updateQuantity(String name, int newQuantity) throws SQLException {
+        boolean result = bookRepository.isExistByTitle(name);
+        if(!result)
+            return -1;
+        return bookRepository.updateQuantity(name, newQuantity);
+    }
 }

@@ -32,4 +32,13 @@ public class BookRepository {
         ResultSet resultSet = preparedStatement.executeQuery();
         return resultSet.next();
     }
+
+    public int updateQuantity(String title, int newQuantity) throws SQLException {
+        Connection connection = getConnection();
+        String query = "UPDATE book b SET b.quantity = ? WHERE b.title = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setInt(1, newQuantity);
+        preparedStatement.setString(2, title);
+        return preparedStatement.executeUpdate();
+    }
 }
