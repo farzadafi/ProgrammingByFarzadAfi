@@ -3,6 +3,7 @@ package ir.farzadafi.service;
 import ir.farzadafi.dto.BookWithBooleanQuantity;
 import ir.farzadafi.model.Book;
 import ir.farzadafi.repository.BookRepository;
+import ir.farzadafi.utility.DynamicArray;
 
 import java.sql.SQLException;
 
@@ -25,15 +26,34 @@ public class BookService {
 
     public BookWithBooleanQuantity findBookByTitle(String title) throws SQLException {
         Book book = bookRepository.findByTitle(title);
-        if(book == null)
+        if (book == null)
             return null;
-        boolean hasQuantity = false;
-        if (book.getQuantity() > 0)
-            hasQuantity = true;
+        return convertBookToBookWithBooleanQuantity(book);
+    }
+
+    private BookWithBooleanQuantity convertBookToBookWithBooleanQuantity(Book book) {
+        boolean hasQuantity = book.getQuantity() > 0;
         return new BookWithBooleanQuantity(book.getId(),
                 book.getTitle(),
                 book.getAuthorName(),
                 book.getPublishYear(),
                 hasQuantity);
+    }
+
+    public BookWithBooleanQuantity[] findAllBookByAuthorName(String authorName) throws SQLException {
+        DynamicArray bookArray = bookRepository.findAllByAuthorName(authorName);
+        return convertBooksToBookWithBooleanQuantity(bookArray);
+    }
+
+    private BookWithBooleanQuantity[] convertBooksToBookWithBooleanQuantity(
+            DynamicArray bookArray) {
+        BookWithBooleanQuantity[] bookWithBooleanQuantities =
+                new BookWithBooleanQuantity[bookArray.getSize()];
+        for (int i = 0; i < bookArray.getSize(); i++) {
+            Book book = (Book) bookArray.getByIndex(i);
+            boolean hasQuantity = false;
+            bookWithBooleanQuantities[i] = convertBookToBookWithBooleanQuantity(book);
+        }
+        return bookWithBooleanQuantities;
     }
 }
