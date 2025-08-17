@@ -7,11 +7,19 @@ public class Book {
     private int publishYear;
     private int quantity;
 
+    public Book() {
+
+    }
+
     public Book(String title, String authorName, int publishYear, int quantity) {
         this.title = title;
         this.authorName = authorName;
         this.publishYear = publishYear;
         this.quantity = quantity;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getTitle() {
@@ -28,5 +36,25 @@ public class Book {
 
     public int getQuantity() {
         return quantity;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setAuthorName(String authorName) {
+        this.authorName = authorName;
+    }
+
+    public void setPublishYear(int publishYear) {
+        this.publishYear = publishYear;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }

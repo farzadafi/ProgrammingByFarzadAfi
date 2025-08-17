@@ -24,7 +24,7 @@ public class BookRepository {
         return preparedStatement.executeUpdate();
     }
 
-    public boolean isExistByTitle(String title) throws SQLException{
+    public boolean isExistByTitle(String title) throws SQLException {
         Connection connection = getConnection();
         String query = "SELECT * FROM book b WHERE b.title = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -35,10 +35,27 @@ public class BookRepository {
 
     public int updateQuantity(String title, int newQuantity) throws SQLException {
         Connection connection = getConnection();
-        String query = "UPDATE book b SET b.quantity = ? WHERE b.title = ?";
+        String query = "UPDATE book b SET quantity = ? WHERE b.title = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setInt(1, newQuantity);
         preparedStatement.setString(2, title);
         return preparedStatement.executeUpdate();
+    }
+
+    public Book findByTitle(String title) throws SQLException {
+        Connection connection = getConnection();
+        String query = "SELECT * FROM book b WHERE b.title = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setString(1, title);
+        ResultSet rs = preparedStatement.executeQuery();
+        if (!rs.next())
+            return null;
+        Book book = new Book();
+        book.setId(rs.getInt("id"));
+        book.setTitle(rs.getString("title"));
+        book.setAuthorName(rs.getString("author_name"));
+        book.setPublishYear(rs.getInt("publish_year"));
+        book.setQuantity(rs.getInt("quantity"));
+        return book;
     }
 }
