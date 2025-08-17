@@ -28,17 +28,18 @@ public class BookService {
         Book book = bookRepository.findByTitle(title);
         if (book == null)
             return null;
-        return convertBookToBookWithBooleanQuantity(book);
+//        return convertBookToBookWithBooleanQuantity(book);
+        return new BookWithBooleanQuantity(book);
     }
 
-    private BookWithBooleanQuantity convertBookToBookWithBooleanQuantity(Book book) {
-        boolean hasQuantity = book.getQuantity() > 0;
-        return new BookWithBooleanQuantity(book.getId(),
-                book.getTitle(),
-                book.getAuthorName(),
-                book.getPublishYear(),
-                hasQuantity);
-    }
+//    private BookWithBooleanQuantity convertBookToBookWithBooleanQuantity(Book book) {
+//        boolean hasQuantity = book.getQuantity() > 0;
+//        return new BookWithBooleanQuantity(book.getId(),
+//                book.getTitle(),
+//                book.getAuthorName(),
+//                book.getPublishYear(),
+//                hasQuantity);
+//    }
 
     public BookWithBooleanQuantity[] findAllBookByAuthorName(String authorName) throws SQLException {
         DynamicArray bookArray = bookRepository.findAllByAuthorName(authorName);
@@ -52,7 +53,8 @@ public class BookService {
         for (int i = 0; i < bookArray.getSize(); i++) {
             Book book = (Book) bookArray.getByIndex(i);
             boolean hasQuantity = false;
-            bookWithBooleanQuantities[i] = convertBookToBookWithBooleanQuantity(book);
+//            bookWithBooleanQuantities[i] = convertBookToBookWithBooleanQuantity(book);
+            bookWithBooleanQuantities[i] = new BookWithBooleanQuantity(book);
         }
         return bookWithBooleanQuantities;
     }
