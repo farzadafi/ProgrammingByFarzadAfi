@@ -2,19 +2,14 @@ package ir.farzadafi.repository;
 
 import ir.farzadafi.model.Book;
 import ir.farzadafi.utility.DynamicArray;
+import ir.farzadafi.utility.JdbcConnection;
 
 import java.sql.*;
 
 public class BookRepository {
 
-    public Connection getConnection() throws SQLException {
-        return DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres",
-                "postgres",
-                "postgres");
-    }
-
     public int save(Book book) throws SQLException {
-        Connection connection = getConnection();
+        Connection connection = JdbcConnection.getConnection();
         String query = "INSERT INTO book(title, author_name, publish_year, quantity)" +
                 " VALUES(?, ?, ?, ?)";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -26,7 +21,7 @@ public class BookRepository {
     }
 
     public boolean isExistByTitle(String title) throws SQLException {
-        Connection connection = getConnection();
+        Connection connection = JdbcConnection.getConnection();
         String query = "SELECT * FROM book b WHERE b.title = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setString(1, title);
@@ -35,7 +30,7 @@ public class BookRepository {
     }
 
     public int updateQuantity(String title, int newQuantity) throws SQLException {
-        Connection connection = getConnection();
+        Connection connection = JdbcConnection.getConnection();
         String query = "UPDATE book b SET quantity = ? WHERE b.title = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setInt(1, newQuantity);
@@ -44,7 +39,7 @@ public class BookRepository {
     }
 
     public Book findByTitle(String title) throws SQLException {
-        Connection connection = getConnection();
+        Connection connection = JdbcConnection.getConnection();
         String query = "SELECT * FROM book b WHERE b.title = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setString(1, title);
@@ -65,7 +60,7 @@ public class BookRepository {
     }
 
     public DynamicArray findAllByAuthorName(String authorName) throws SQLException {
-        Connection connection = getConnection();
+        Connection connection = JdbcConnection.getConnection();
         String query = "SELECT * FROM book b WHERE b.author_name = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setString(1, authorName);
