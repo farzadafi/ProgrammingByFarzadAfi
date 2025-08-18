@@ -72,4 +72,12 @@ public class BookRepository {
         }
         return dynamicArray;
     }
+
+    public int minesOneFromQuantity(String title) throws SQLException {
+        Connection connection = JdbcConnection.getConnection();
+        String query = "UPDATE book b SET quantity = b.quantity - 1 WHERE b.title = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setString(1, title);
+        return preparedStatement.executeUpdate();
+    }
 }

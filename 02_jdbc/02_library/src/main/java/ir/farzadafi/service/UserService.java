@@ -37,4 +37,8 @@ public class UserService {
         }
         return true;
     }
+
+    public int getIdByNationalCode(String nationalCode) throws SQLException {
+        return userRepository.getIdByNationalCode(nationalCode);
+    }
 }

@@ -2,7 +2,9 @@ package ir.farzadafi;
 
 import ir.farzadafi.dto.BookWithBooleanQuantity;
 import ir.farzadafi.model.Book;
+import ir.farzadafi.model.BookLoan;
 import ir.farzadafi.model.User;
+import ir.farzadafi.service.BookLoanService;
 import ir.farzadafi.service.BookService;
 import ir.farzadafi.service.UserService;
 
@@ -12,6 +14,7 @@ public class ProgrammingByFarzadAfi {
     public static void main(String[] args) throws SQLException {
         BookService bookService = new BookService();
         UserService userService = new UserService();
+        BookLoanService bookLoanService = new BookLoanService();
         //insert book
 //        Book book = new Book("ab", "b", 1400, 0);
 //        System.out.println(bookService.save(book));
@@ -29,7 +32,18 @@ public class ProgrammingByFarzadAfi {
 //        }
 
         //save user
-        User user = new User("aaa", "3080000000");
-        System.out.println(userService.save(user));
+//        User user = new User("aaa", "3080000000");
+//        System.out.println(userService.save(user));
+
+        // loan book step 8
+        int i = bookLoanService.loanBook("3080000000", "a");
+        if(i == -1)
+            System.out.println("user not found!");
+        else if(i == -2)
+            System.out.println("book not found");
+        else if(i == -3)
+            System.out.println("book not enough");
+        else
+            System.out.println("OK!");
     }
 }

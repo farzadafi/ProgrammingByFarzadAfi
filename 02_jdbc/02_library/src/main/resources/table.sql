@@ -11,3 +11,9 @@ CREATE TABLE IF NOT EXISTS users(
     name VARCHAR,
     national_code VARCHAR(10)
 );
+
+CREATE TABLE IF NOT EXISTS book_loan(
+    book_id INT REFERENCES book(id),
+    user_id INT REFERENCES users(id),
+    date DATE
+);
