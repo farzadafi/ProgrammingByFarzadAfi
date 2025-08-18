@@ -60,4 +60,8 @@ public class BookService {
     public int minesOneFromBookQuantity(String title) throws SQLException {
         return bookRepository.minesOneFromQuantity(title);
     }
+
+    public int plusOneFromBookQuantity(String title) throws SQLException {
+        return bookRepository.plusOneFromQuantity(title);
+    }
 }

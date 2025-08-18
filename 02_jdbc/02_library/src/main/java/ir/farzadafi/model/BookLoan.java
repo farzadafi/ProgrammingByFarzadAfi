@@ -6,6 +6,7 @@ public class BookLoan {
     private int bookId;
     private int userId;
     private LocalDate date;
+    private LocalDate returnDate;
 
     public BookLoan(int bookId, int userId, LocalDate date) {
         this.bookId = bookId;

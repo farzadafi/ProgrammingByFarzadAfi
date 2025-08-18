@@ -25,4 +25,11 @@ public class BookLoanService {
         bookLoanRepository.save(bookLoan);
         return bookService.minesOneFromBookQuantity(bookTitle);
     }
+
+    public int returnBook(String nationalCode, String bookTitle) throws SQLException {
+        int userId = userService.getIdByNationalCode(nationalCode);
+        BookWithBooleanQuantity book = bookService.findBookByTitle(bookTitle);
+        bookLoanRepository.setReturnDateBook(book.id(), userId, LocalDate.now());
+        return bookService.plusOneFromBookQuantity(bookTitle);
+    }
 }

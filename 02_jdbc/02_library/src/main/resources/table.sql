@@ -17,3 +17,5 @@ CREATE TABLE IF NOT EXISTS book_loan(
     user_id INT REFERENCES users(id),
     date DATE
 );
+ALTER TABLE book_loan
+ADD return_date DATE;

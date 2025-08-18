@@ -36,14 +36,16 @@ public class ProgrammingByFarzadAfi {
 //        System.out.println(userService.save(user));
 
         // loan book step 8
-        int i = bookLoanService.loanBook("3080000000", "a");
-        if(i == -1)
-            System.out.println("user not found!");
-        else if(i == -2)
-            System.out.println("book not found");
-        else if(i == -3)
-            System.out.println("book not enough");
-        else
-            System.out.println("OK!");
+//        int i = bookLoanService.loanBook("3080000000", "a");
+//        if(i == -1)
+//            System.out.println("user not found!");
+//        else if(i == -2)
+//            System.out.println("book not found");
+//        else if(i == -3)
+//            System.out.println("book not enough");
+//        else
+//            System.out.println("OK!");
+        // return book step 9
+        System.out.println(bookLoanService.returnBook("3080000000", "a"));
     }
 }
