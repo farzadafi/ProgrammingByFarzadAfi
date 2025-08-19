@@ -1,12 +1,11 @@
 package ir.farzadafi.repository;
 
+import ir.farzadafi.dto.UnReturnedBook;
 import ir.farzadafi.model.BookLoan;
+import ir.farzadafi.utility.DynamicArray;
 import ir.farzadafi.utility.JdbcConnection;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDate;
 
 public class BookLoanRepository {
@@ -32,5 +31,25 @@ public class BookLoanRepository {
         preparedStatement.setInt(2, bookId);
         preparedStatement.setInt(3, userId);
         return preparedStatement.executeUpdate();
+    }
+
+    public DynamicArray listUnReturnedBookByUserNationalCode(String nationalCode)
+            throws SQLException {
+        Connection connection = JdbcConnection.getConnection();
+        String query = "SELECT b.title, bl.date " +
+                "FROM book_loan bl " +
+                "INNER JOIN book b ON bl.book_id = b.id " +
+                "INNER JOIN users u ON bl.user_id = u.id " +
+                "WHERE bl.return_date IS NULL AND u.national_code = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setString(1, nationalCode);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        DynamicArray unReturnedBooks = new DynamicArray("UnReturnedBook");
+        while (resultSet.next()) {
+            LocalDate borrowDate = resultSet.getDate("date").toLocalDate();
+            String title = resultSet.getString("title");
+            unReturnedBooks.add(new UnReturnedBook(title, borrowDate));
+        }
+        return unReturnedBooks;
     }
 }

@@ -46,11 +46,18 @@ public class ProgrammingByFarzadAfi {
 //            System.out.println("book not enough");
 //        else
 //            System.out.println("OK!");
+
 //         return book step 9
 //        System.out.println(bookLoanService.returnBook("3080000000", "a"));
 
         //list of unReturned book step 10
-        DynamicArray dynamicArray = bookService.listUnReturnedBook();
+//        DynamicArray dynamicArray = bookService.listUnReturnedBook();
+//        for (int i = 0; i < dynamicArray.getSize(); i++) {
+//            System.out.println(dynamicArray.getByIndex(i));
+//        }
+
+        //list of unReturned book by user national code step 11
+        DynamicArray dynamicArray = bookLoanService.listUnReturnedBookByUserNationalCode("3080000000");
         for (int i = 0; i < dynamicArray.getSize(); i++) {
             System.out.println(dynamicArray.getByIndex(i));
         }

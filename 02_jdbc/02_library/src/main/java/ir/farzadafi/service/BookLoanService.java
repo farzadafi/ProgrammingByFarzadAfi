@@ -3,6 +3,7 @@ package ir.farzadafi.service;
 import ir.farzadafi.dto.BookWithBooleanQuantity;
 import ir.farzadafi.model.BookLoan;
 import ir.farzadafi.repository.BookLoanRepository;
+import ir.farzadafi.utility.DynamicArray;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -19,7 +20,7 @@ public class BookLoanService {
         BookWithBooleanQuantity bookByTitle = bookService.findBookByTitle(bookTitle);
         if (bookByTitle == null)
             return -2;
-        if(!bookByTitle.hasQuantity())
+        if (!bookByTitle.hasQuantity())
             return -3;
         BookLoan bookLoan = new BookLoan(bookByTitle.id(), userId, LocalDate.now());
         bookLoanRepository.save(bookLoan);
@@ -32,4 +33,11 @@ public class BookLoanService {
         bookLoanRepository.setReturnDateBook(book.id(), userId, LocalDate.now());
         return bookService.plusOneFromBookQuantity(bookTitle);
     }
+
+    public DynamicArray listUnReturnedBookByUserNationalCode(String nationalCode)
+            throws SQLException {
+        return bookLoanRepository.listUnReturnedBookByUserNationalCode(nationalCode);
+    }
+
+
 }
