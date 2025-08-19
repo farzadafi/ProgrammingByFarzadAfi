@@ -64,4 +64,8 @@ public class BookService {
     public int plusOneFromBookQuantity(String title) throws SQLException {
         return bookRepository.plusOneFromQuantity(title);
     }
+
+    public DynamicArray listUnReturnedBook() throws SQLException {
+        return bookRepository.listUnReturnedBook();
+    }
 }

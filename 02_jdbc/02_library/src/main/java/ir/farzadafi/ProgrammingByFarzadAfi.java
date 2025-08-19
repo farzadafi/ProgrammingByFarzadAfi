@@ -7,6 +7,7 @@ import ir.farzadafi.model.User;
 import ir.farzadafi.service.BookLoanService;
 import ir.farzadafi.service.BookService;
 import ir.farzadafi.service.UserService;
+import ir.farzadafi.utility.DynamicArray;
 
 import java.sql.SQLException;
 
@@ -45,7 +46,13 @@ public class ProgrammingByFarzadAfi {
 //            System.out.println("book not enough");
 //        else
 //            System.out.println("OK!");
-        // return book step 9
-        System.out.println(bookLoanService.returnBook("3080000000", "a"));
+//         return book step 9
+//        System.out.println(bookLoanService.returnBook("3080000000", "a"));
+
+        //list of unReturned book step 10
+        DynamicArray dynamicArray = bookService.listUnReturnedBook();
+        for (int i = 0; i < dynamicArray.getSize(); i++) {
+            System.out.println(dynamicArray.getByIndex(i));
+        }
     }
 }
