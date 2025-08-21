@@ -106,4 +106,12 @@ public class BookRepository {
         }
         return unReturnedBooks;
     }
+
+    public int remove(int bookId) throws SQLException {
+        Connection connection = JdbcConnection.getConnection();
+        String query = "DELETE FROM book WHERE id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setInt(1, bookId);
+        return preparedStatement.executeUpdate();
+    }
 }

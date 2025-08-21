@@ -57,9 +57,16 @@ public class ProgrammingByFarzadAfi {
 //        }
 
         //list of unReturned book by user national code step 11
-        DynamicArray dynamicArray = bookLoanService.listUnReturnedBookByUserNationalCode("3080000000");
-        for (int i = 0; i < dynamicArray.getSize(); i++) {
-            System.out.println(dynamicArray.getByIndex(i));
-        }
+//        DynamicArray dynamicArray = bookLoanService.listUnReturnedBookByUserNationalCode("3080000000");
+//        for (int i = 0; i < dynamicArray.getSize(); i++) {
+//            System.out.println(dynamicArray.getByIndex(i));
+//        }
+
+//        remove book ste1p 12
+        int remove = bookService.remove(2);
+        if(remove == -1)
+            System.out.println("this book has active loan");
+        else
+            System.out.println("OK!");
     }
 }

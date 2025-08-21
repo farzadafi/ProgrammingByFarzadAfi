@@ -52,4 +52,15 @@ public class BookLoanRepository {
         }
         return unReturnedBooks;
     }
+
+    public boolean isBookActiveLoan(int bookId) throws SQLException {
+        Connection connection = JdbcConnection.getConnection();
+        String query = "SELECT * FROM book_loan bl " +
+                "WHERE bl.book_id = ? AND" +
+                " bl.return_date IS NULL LIMIT 1";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setInt(1, bookId);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        return resultSet.next();
+    }
 }

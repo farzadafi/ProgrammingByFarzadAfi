@@ -39,5 +39,9 @@ public class BookLoanService {
         return bookLoanRepository.listUnReturnedBookByUserNationalCode(nationalCode);
     }
 
-
+    //todo -> I must fix this static method :)
+    public static boolean isBookActiveLoan(int bookId) throws SQLException {
+        BookLoanRepository bookLoanRepository1 = new BookLoanRepository();
+        return bookLoanRepository1.isBookActiveLoan(bookId);
+    }
 }

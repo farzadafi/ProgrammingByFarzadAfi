@@ -2,6 +2,7 @@ package ir.farzadafi.service;
 
 import ir.farzadafi.dto.BookWithBooleanQuantity;
 import ir.farzadafi.model.Book;
+import ir.farzadafi.repository.BookLoanRepository;
 import ir.farzadafi.repository.BookRepository;
 import ir.farzadafi.utility.DynamicArray;
 
@@ -67,5 +68,12 @@ public class BookService {
 
     public DynamicArray listUnReturnedBook() throws SQLException {
         return bookRepository.listUnReturnedBook();
+    }
+
+    public int remove(int bookId) throws SQLException {
+        boolean bookActiveLoan = BookLoanService.isBookActiveLoan(bookId);
+        if (bookActiveLoan)
+            return -1;
+        return bookRepository.remove(bookId);
     }
 }
