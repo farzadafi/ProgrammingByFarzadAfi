@@ -1,7 +1,12 @@
 package ir.farzadafi.model;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDate;
 
+@Data
+@NoArgsConstructor
 public class BookLoan {
     private int bookId;
     private int userId;
@@ -12,17 +17,5 @@ public class BookLoan {
         this.bookId = bookId;
         this.userId = userId;
         this.date = date;
-    }
-
-    public int getBookId() {
-        return bookId;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public LocalDate getDate() {
-        return date;
     }
 }
