@@ -1,0 +1,127 @@
+Dear team,
+
+As requested, I’ve gathered various data samples for analysis and pattern recognition. Please read the full report below. Let me know if you need more `abc`, `b` values, or anything else.
+
+---
+
+This morning, **Alice** (user: `alice123`) logged in at **08:05:30** and wrote a message:
+
+> *"All good here. See you at 10am!"*
+
+Meanwhile, **Bob** sent a link to `http://example.com` and said:
+
+> *"Try using the word **'Hello'**, not just **hello**."*
+> Notice the capital and lowercase versions? Regex should match **both `a` and `A`** easily.
+
+In another message, someone typed:
+`The box contains 42 apples, 007 bananas, and 1234567890 berries.`
+All those numbers are valid — both **single-digit** like `5` and **multi-digit** like `123456`.
+
+Later, we found that someone used the password `StrongPa$$w0rd`, which is strong — contains **uppercase**, **lowercase**, **numbers**, and **special characters**.
+
+For testing character sets, try:
+
+* A line with lowercase: `abcdefghij`
+* Uppercase: `XYZ`
+* Special chars: `^`, `@`, `%`, `_`
+* Mixed: `aB1_` (alphanumeric with underscore)
+
+There was an input with the word `cAtS`, which should match `(cat|dog)s?`.
+Also: `ababab`, `abc`, and even repeated letters like `letter` (matches `(\w)\1`) were seen.
+
+We encountered some interesting phone numbers:
+
+* `1234567890` (simple 10-digit)
+* Dates like `2025-10-07` and `31/12/2020`
+* Time formats like `23:59` and `08:05:30`
+
+Here’s a sample JSON:
+
+```json
+{"key":"value","num":123}
+```
+
+And a block of HTML:
+
+```html
+<div class="note">Welcome to the site!</div>
+<p>This is a paragraph.</p>
+```
+
+Some IPs were logged:
+
+* IPv4: `192.168.0.1`, `255.255.255.255`
+* IPv6: `fe80::1`
+
+User emails included:
+
+* `user@example.com`
+* `someone@mail.co.uk`
+
+Also URLs like:
+
+* `https://www.example.org`
+* `https://mail.example.co.uk/path?q=1`
+
+A credit card was entered (test only): `1234-5678-9012-3456`
+And a postal code: `54321`
+
+The line `"x marks the spot"` puts `x` at the start. Also, `"end of the box"` has `x` at the end.
+In `"xyz"`, the `y` is **between** other letters. Good for center-match.
+
+For spacing tests:
+
+* Tabs: `\tThis line starts with a tab.`
+* Newlines: This sentence
+  has a break.
+
+To test repetition and greedy/lazy matches, observe:
+
+* Greedy: `a...b` in `alphabetabbbb`
+* Lazy: `a.*?b` in same line
+
+Word boundaries (`\b`) work with `The quick brown fox`.
+Non-word chars (`\W`) match symbols like `#`, `!`, or spaces.
+
+Some people typed `Username_1`, others just `abc123`. Both are valid `\w+` matches.
+Also check inputs that are only alphanumeric: `Only123` and `no_specials_here`.
+
+Regex counted:
+
+* Exactly 3 letters: `abc` (`{3}`)
+* 2–5 digits: `42`, `007`, `12345` (`{2,5}`)
+* At least 2 letters: `minimum`, `greedy` (`{2,}`)
+
+Start (`^`) and end (`$`) of lines are tested using:
+
+> `^Begin`
+> `End$`
+
+---
+
+Let’s not forget alternation and grouping:
+
+* "Do you like **cats** or **dogs**?"
+* `(ab)+` matches: `ababab`
+* `(cat|dog)s?` matches: `cats`, `dog`, `dogs`
+* Backreference: `letter` → double `tt`
+
+---
+
+Please validate all the above using your regex engine.
+If anything is missing — whether it's a backslash (`\n`), or a clever match like `(\w)\1`, let me know.
+
+Kind regards,
+**Regex Tester Bot**
+
+---
+
+### 🎯 Notes:
+
+This text includes:
+
+* Conversations
+* Log entries
+* HTML + JSON blocks
+* Dates, times, URLs, emails, passwords
+* Valid strings for all types of regex operations you listed
