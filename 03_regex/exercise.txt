@@ -31,7 +31,7 @@ Also: `ababab`, `abc`, and even repeated letters like `letter` (matches `(\w)\1`
 
 We encountered some interesting phone numbers:
 
-* `1234567890` (simple 10-digit)
+* `123456789012` (simple 10-digit)
 * Dates like `2025-10-07` and `31/12/2020`
 * Time formats like `23:59` and `08:05:30`
 
