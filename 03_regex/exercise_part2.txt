@@ -1,0 +1,54 @@
+15-Match:
+2023-12-25
+1999-01-01
+2050-10-09
+Dont  match:
+abc2023-12-25
+2023-12-25xyz
+20231-12-25
+
+16-Match:
+abc123
+Hello123
+A1B2C3
+Dont  match:
+abc 123
+hello@world
+123#456
+
+17-Match:
+example123@gmail.com
+user.name+tag@domain.co
+john_doe99@sub.domain.org
+Dont match:
+plainaddress
+user@.com
+user@domain.c
+
+18-Match:
+Passw0rd!
+A1b2c3d4#
+Strong_Pass1
+DontMatch:
+password
+Password1
+P@ss1
+ 
+
+19-Match:
+http://example.com
+https://www.google.com/search
+https://my-site.org/blog/article1
+Dont Match:
+ftp://example.com
+http://example
+https://example..com
+
+20-Match:
+1234567812345678
+1234-5678-1234-5678
+1234 5678 1234 5678
+DontMatch:
+1234-5678-1234
+12345678123456789
+
