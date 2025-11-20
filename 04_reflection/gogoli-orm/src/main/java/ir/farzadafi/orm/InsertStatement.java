@@ -1,34 +1,15 @@
 package ir.farzadafi.orm;
 
 import java.lang.reflect.Field;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 
 public class InsertStatement {
-
-    public void insertStatementCreator(Object entity) throws SQLException, IllegalAccessException {
+    public String insertStatementCreator(Object entity) {
         Class<?> clazz = entity.getClass();
         final Field[] declaredFields = clazz.getDeclaredFields();
         String columns = createColumns(declaredFields);
         String tableName = clazz.getSimpleName().toLowerCase();
         String placeHolder = createPlaceHolder(declaredFields.length);
-        String sql = getQuery(tableName, columns, placeHolder);
-
-        Connection connection = DriverManager.getConnection(
-                "jdbc:postgresql://localhost:5432/postgres",
-                "postgres", "postgres");
-
-        PreparedStatement preparedStatement = connection.prepareStatement(sql);
-        for (int i = 0; i < declaredFields.length; i++) {
-            Field field = declaredFields[i];
-            field.setAccessible(true);
-            Object o = field.get(entity);
-            preparedStatement.setObject(i + 1, o);
-        }
-        int i = preparedStatement.executeUpdate();
-        System.out.println(i);
+        return getQuery(tableName, columns, placeHolder);
     }
 
     private static String getQuery(String tableName, String columns, String placeHolder) {
