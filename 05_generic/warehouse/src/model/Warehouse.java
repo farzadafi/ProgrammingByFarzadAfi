@@ -6,15 +6,15 @@ public class Warehouse {
     private Box<Phone> phoneBox;
     private Box<Clothing> clothingBox;
 
-    private void storeBook(Book book) {
+    public void storeBook(Book book) {
         this.bookBox = new Box<>(book);
     }
 
-    private void storePhone(Phone phone) {
+    public void storePhone(Phone phone) {
         this.phoneBox = new Box<>(phone);
     }
 
-    private void storeClothing(Clothing clothing) {
+    public void storeClothing(Clothing clothing) {
         this.clothingBox = new Box<>(clothing);
     }
 
