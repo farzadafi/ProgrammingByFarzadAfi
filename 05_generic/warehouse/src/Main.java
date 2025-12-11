@@ -9,12 +9,8 @@ public class Main {
         Phone phone = new Phone("q", "z", 200);
         Clothing clothing = new Clothing("j", "g", 100);
 
-        Warehouse warehouse = new Warehouse();
-
-//        warehouse.storeBook(book);
-        warehouse.storePhone(phone);
-        warehouse.storeClothing(clothing);
-
+        Warehouse<Book> warehouse = new Warehouse<>();
+        warehouse.store(book);
         warehouse.printInventory();
     }
 }
