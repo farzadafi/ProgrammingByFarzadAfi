@@ -2,10 +2,10 @@ package model;
 
 public class Warehouse<T> {
 
-    private Box<T> box;
+    private Box<T, ?> box;
 
-    public void store(T item) {
-        this.box = new Box<>(item);
+    public void store(Box<T, ?> box) {
+        this.box = box;
     }
 
     public void printInventory() {

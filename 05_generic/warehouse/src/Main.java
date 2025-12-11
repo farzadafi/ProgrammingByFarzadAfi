@@ -1,7 +1,4 @@
-import model.Book;
-import model.Clothing;
-import model.Phone;
-import model.Warehouse;
+import model.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -10,7 +7,8 @@ public class Main {
         Clothing clothing = new Clothing("j", "g", 100);
 
         Warehouse<Book> warehouse = new Warehouse<>();
-        warehouse.store(book);
+        Box<Book, Integer> bookBox = new Box<>(1, book);
+        warehouse.store(bookBox);
         warehouse.printInventory();
     }
 }
