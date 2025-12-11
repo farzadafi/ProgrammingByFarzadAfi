@@ -18,4 +18,8 @@ public class Warehouse<T> {
 
         System.out.println("==================================");
     }
+
+    public <U, X extends Number> Box<U, X> copyBox(Box<U, X> box) {
+        return new Box<>(box.getId(), box.getItem());
+    }
 }

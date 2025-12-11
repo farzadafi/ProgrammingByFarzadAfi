@@ -9,6 +9,14 @@ public class Box<T, ID extends Number> {
         this.item = item;
     }
 
+    public ID getId() {
+        return id;
+    }
+
+    public T getItem() {
+        return item;
+    }
+
     @Override
     public String toString() {
         return "Box{" +

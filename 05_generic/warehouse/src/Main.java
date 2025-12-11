@@ -10,5 +10,7 @@ public class Main {
         Box<Book, Integer> bookBox = new Box<>(1, book);
         warehouse.store(bookBox);
         warehouse.printInventory();
+        Box<Book, Integer> bookIntegerBox = warehouse.copyBox(bookBox);
+        System.out.println(bookIntegerBox.toString());
     }
 }
