@@ -12,5 +12,9 @@ public class Main {
         warehouse.printInventory();
         Box<Book, Integer> bookIntegerBox = warehouse.copyBox(bookBox);
         System.out.println(bookIntegerBox.toString());
+
+        Box<? extends Goods, Integer> integerBox = warehouse.transformBox(bookBox, ConvertTo.CLOTHING);
+        System.out.println(integerBox);
+
     }
 }

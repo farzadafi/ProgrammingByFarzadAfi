@@ -1,6 +1,6 @@
 package model;
 
-public class Clothing {
+public class Clothing implements Goods{
     private String name;
     private String color;
     private int price;

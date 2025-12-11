@@ -1,6 +1,6 @@
 package model;
 
-public class Phone {
+public class Phone implements Goods{
     private String name;
     private String brand;
     private int price;
@@ -9,6 +9,18 @@ public class Phone {
         this.name = name;
         this.brand = brand;
         this.price = price;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public int getPrice() {
+        return price;
     }
 
     @Override
