@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.UUID;
+
 @Entity
 @Table(name = "student_table")
 @AllArgsConstructor
@@ -14,12 +16,22 @@ import lombok.ToString;
 @Setter
 public class Student {
     @Id
-    private int id;
+    //sequence generator
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "student_generator")
+//    @SequenceGenerator(name = "student_generator", allocationSize = 20)
 
-//    @Column(length = 260, unique = true)
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
+
+    //    @Column(length = 260, unique = true)
     private String name;
-//    @Transient
+    //    @Transient
     private int age;
+
+    public Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
 
 //    @Temporal(TemporalType.TIME)
 //    private Date birthDate;
