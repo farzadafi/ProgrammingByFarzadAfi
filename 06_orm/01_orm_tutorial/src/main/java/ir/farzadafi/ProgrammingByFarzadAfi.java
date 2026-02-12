@@ -14,11 +14,38 @@ public class ProgrammingByFarzadAfi {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         // CREATE OPERATION
-//        Student ali = new Student(1, "ali", 20);
-//        EntityTransaction transaction = entityManager.getTransaction();
-//        transaction.begin();
-//        entityManager.persist(ali);
-//        transaction.commit();
+        Student ali = new Student("naser", 10);
+        EntityTransaction transaction = entityManager.getTransaction();
+        transaction.begin();
+        entityManager.persist(ali);
+        transaction.commit();
+
+//        Student ali1 = new Student("naser", 10);
+//        EntityTransaction transaction1 = entityManager.getTransaction();
+//        transaction1.begin();
+//        entityManager.persist(ali1);
+//        transaction1.commit();
+////
+////
+//        Student ali2 = new Student("naser", 10);
+//        EntityTransaction transaction2 = entityManager.getTransaction();
+//        transaction2.begin();
+//        entityManager.persist(ali2);
+//        transaction2.commit();
+//
+//        Student ali3 = new Student("naser", 10);
+//        EntityTransaction transaction3 = entityManager.getTransaction();
+//        transaction3.begin();
+//        entityManager.persist(ali3);
+//        transaction3.commit();
+//
+//        Student ali4 = new Student("naser", 10);
+//        EntityTransaction transaction4 = entityManager.getTransaction();
+//        transaction4.begin();
+//        entityManager.persist(ali4);
+//        transaction4.commit();
+
+
 
         //READ OPERATION
 //        Student student = entityManager.find(Student.class, 1);
