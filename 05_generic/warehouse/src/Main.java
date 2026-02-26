@@ -1,20 +1,17 @@
-import model.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
-        Book book = new Book("a", "b", 1000);
-        Phone phone = new Phone("q", "z", 200);
-        Clothing clothing = new Clothing("j", "g", 100);
+        Map<Integer, String> map = new HashMap<>();
+        System.out.println(map.put(1, "first"));
+        System.out.println(map.put(2, "second"));
+        System.out.println(map.put(3, "third"));
 
-        Warehouse<Book> warehouse = new Warehouse<>();
-        Box<Book, Integer> bookBox = new Box<>(1, book);
-        warehouse.store(bookBox);
-        warehouse.printInventory();
-        Box<Book, Integer> bookIntegerBox = warehouse.copyBox(bookBox);
-        System.out.println(bookIntegerBox.toString());
-
-        Box<? extends Goods, Integer> integerBox = warehouse.transformBox(bookBox, ConvertTo.CLOTHING);
-        System.out.println(integerBox);
-
+        for (Map.Entry<Integer, String> i : map.entrySet()) {
+            System.out.println(i.getKey());
+            System.out.println(i.getValue());
+        }
     }
 }

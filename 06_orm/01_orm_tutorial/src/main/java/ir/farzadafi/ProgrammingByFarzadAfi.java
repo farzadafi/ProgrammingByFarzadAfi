@@ -9,17 +9,17 @@ import jakarta.persistence.Persistence;
 public class ProgrammingByFarzadAfi {
     public static void main(String[] args) {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
-        System.out.println("Test");
+//        System.out.println("Test");
 
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         // CREATE OPERATION
-        Student ali = new Student("naser", 10);
-        EntityTransaction transaction = entityManager.getTransaction();
-        transaction.begin();
-        entityManager.persist(ali);
-        transaction.commit();
-
+//        Student ali = new Student("naser", 10);
+//        EntityTransaction transaction = entityManager.getTransaction();
+//        transaction.begin();
+//        entityManager.persist(ali);
+//        transaction.commit();
+//
 //        Student ali1 = new Student("naser", 10);
 //        EntityTransaction transaction1 = entityManager.getTransaction();
 //        transaction1.begin();
